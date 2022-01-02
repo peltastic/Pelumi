@@ -1,0 +1,47 @@
+
+.background {
+  background-image: linear-gradient(105deg, #000000a3, #000000a5),
+    url("../assets/background.jpg");
+  background-size: 100vw 100%;
+  background-repeat: repeat;
+  z-index: -1;
+  height: 100vh;
+}
+@media (max-width: 600px) {
+  .background {
+    background-size: 150vw 100vh;
+  }
+}
+@media (max-width: 400px) {
+  .background {
+    background-size: 200vw 100vh;
+  }
+}
+
+@media (max-width: 900px) {
+  .social_links {
+    width: 70%;
+  }
+}
+@media (max-width: 600px) {
+  .social_links {
+    width: 90%;
+  }
+}
+
+@media (max-width: 600px) {
+  .header{
+    width: 70%;
+  }
+}
+@media (max-width: 400px) {
+  .header{
+    width: 90%;
+  }
+}
+
+@media (max-width: 1000px) {
+  .project_con {
+    justify-content: center;
+  }
+}
