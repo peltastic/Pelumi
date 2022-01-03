@@ -9,7 +9,7 @@ function Projects() {
       <Nav />
       <div className={` flex flex-wrap w-full p-10 mx-auto ${classes.project_con}`}>
         {ProjectInfo.map((item, index) => {
-          return <Project key={index} name={item.name} image={item.image} class={item.class} desc={item.desc} />;
+          return <Project key={index} name={item.name} image={item.image} class={item.class} desc={item.desc} github={item.github} link={item.link} />;
         })}
       </div>
     </div>
