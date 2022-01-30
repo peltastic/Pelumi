@@ -3,7 +3,6 @@
     url("../assets/background.jpg");
   background-size: 100vw 100%;
   background-repeat: repeat;
-  z-index: -1;
   height: 100vh;
 }
 @media (max-width: 600px) {

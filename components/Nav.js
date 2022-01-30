@@ -24,7 +24,7 @@ function Nav() {
       <SideNav show={openSidebar} clicked={sidebarHandelr}/>
       {openSidebar ? <Backdrop /> : null}
       <div
-        className={` flex fixed text-white items-center w-full h-12 custom-shadow bg-zinc-800 px-8 ${classes.nav_big}`}
+        className={` flex z-50 fixed text-white items-center w-full h-12 custom-shadow bg-zinc-800 px-8 ${classes.nav_big}`}
       >
         <Link to="home" spy={true} smooth={true} className="mr-auto">
           <AiOutlineHome className=" text-2xl cursor-pointer" />
