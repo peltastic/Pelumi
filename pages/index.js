@@ -4,7 +4,7 @@ import { AiTwotoneMail } from "react-icons/ai";
 import Link from "next/link";
 import classes from "../styles/background.module.css";
 import Projects from "../components/Projects";
-import Aboutme from "../components/aboutme";
+import Aboutme from "../components/Aboutme";
 
 export default function Home() {
   return (
