@@ -1,4 +1,4 @@
-import Nav from "../components/Nav";
+import Nav from "./Nav";
 import classes from "../styles/background.module.css";
 import { HiArrowNarrowDown } from "react-icons/hi";
 import Image from "next/image";
@@ -33,8 +33,8 @@ function Aboutme() {
     },
   ];
   return (
-    <div className={`${classes.background}`}>
-      <Nav />
+    <div className="">
+      <h1 className="text-white text-center">INSPIRATIONS</h1>
       <div className={`text-white bg-gray-800 p-4 w-8/12 mx-auto mt-12 ${classes.about}`}>
         <h1>
           Hi, I'm Onasoga Pelumi from Nigeria. I love programming, learnig new

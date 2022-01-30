@@ -1,5 +1,14 @@
 export const ProjectInfo = [
   {
+    name: "social media app with react and firebase",
+    link: "https://social-media-app-with-react-and-firebase.vercel.app/signup",
+    github:
+      "https://github.com/peltastic/Social-Media-App-With-React-and-Firebase",
+    desc: "A social media app where the user can share photos, like and comments on posts",
+    image:
+      "https://firebasestorage.googleapis.com/v0/b/portfolio-project-images.appspot.com/o/Screenshot%20(31).png?alt=media&token=fdbf5814-975a-4b8d-b528-d39b7428396a",
+  },
+  {
     name: "Youtube Clone",
     link: "https://youtube-clone-wine.vercel.app/",
     github: "https://github.com/peltastic/YOUTUBE_CLONE",
@@ -12,7 +21,8 @@ export const ProjectInfo = [
     link: "https://myfurnituree.netlify.app/",
     github: "https://github.com/peltastic/myFurniture-app-with-redux",
     desc: "A fictional e-commerce website that sells furniture. Users are able to add funitures to cart and proceed to snipcart checkout.",
-    image: "https://firebasestorage.googleapis.com/v0/b/portfolio-project-images.appspot.com/o/funitureapp.png?alt=media&token=662a7fdb-e927-46a2-b3b3-550bf020b47d",
+    image:
+      "https://firebasestorage.googleapis.com/v0/b/portfolio-project-images.appspot.com/o/funitureapp.png?alt=media&token=662a7fdb-e927-46a2-b3b3-550bf020b47d",
   },
   {
     name: "Javascript Memory Game",

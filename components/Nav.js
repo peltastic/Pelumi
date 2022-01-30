@@ -1,42 +1,45 @@
 import { useState } from "react";
 import { AiOutlineHome } from "react-icons/ai";
-import Link from "next/link";
+import { Link } from "react-scroll";
 import classes from "../styles/nav.module.css";
 import SideNav from "./SideNav";
 import Backdrop from "./Backdrop";
 
 function Nav() {
-    const [openSidebar, setOpenSidebar] = useState(false)
-  
+  const [openSidebar, setOpenSidebar] = useState(false);
 
+  const sidebarHandelr = () => {setOpenSidebar(!openSidebar)};
   return (
     <>
-    <div className={`${classes.nav_mobile} py-1 z-50`} onClick={
-      () => {
-        setOpenSidebar(!openSidebar)
-      }
-    }>
-      <div className={`${ openSidebar ?  classes.nav_top : null} my-1`}></div>
-      <div className={`${ openSidebar ? classes.nav_mid : null} my-1`}></div>
-      <div className={`${openSidebar ? classes.nav_bottom : null} my-1`} ></div>
-    </div>
-    <SideNav show={openSidebar}/>
-    {openSidebar ?  <Backdrop /> : null}
       <div
-        className={` flex text-white items-center w-full h-12 custom-shadow bg-zinc-800 px-8 ${classes.nav_big}`}
+        className={`${classes.nav_mobile} py-1 z-50`}
+        onClick={sidebarHandelr}
       >
-        <a href={"/"} className="mr-auto">
+        <div className={`${openSidebar ? classes.nav_top : null} my-1`}></div>
+        <div className={`${openSidebar ? classes.nav_mid : null} my-1`}></div>
+        <div
+          className={`${openSidebar ? classes.nav_bottom : null} my-1`}
+        ></div>
+      </div>
+      <SideNav show={openSidebar} clicked={sidebarHandelr}/>
+      {openSidebar ? <Backdrop /> : null}
+      <div
+        className={` flex fixed text-white items-center w-full h-12 custom-shadow bg-zinc-800 px-8 ${classes.nav_big}`}
+      >
+        <Link to="home" spy={true} smooth={true} className="mr-auto">
           <AiOutlineHome className=" text-2xl cursor-pointer" />
-        </a>
+        </Link>
+
         <a href={"https://pelumix.netlify.app/assets/resume.pdf"}>
           <p className=" mx-4 cursor-pointer">Resume</p>
         </a>
-        <a href={"/projects"}>
+        <Link to="projects" spy={true} smooth={true}>
           <p className=" mx-4 cursor-pointer">Projects</p>
-        </a>
-        <a href={"/aboutme"}>
-          <p className=" mx-4 cursor-pointer">About Me</p>
-        </a>
+        </Link>
+
+        <Link to="inspirations" spy={true} smooth={true}>
+          <p className=" mx-4 cursor-pointer">Inspirations</p>
+        </Link>
       </div>
     </>
   );
