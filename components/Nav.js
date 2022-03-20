@@ -30,7 +30,7 @@ function Nav() {
           <AiOutlineHome className=" text-2xl cursor-pointer" />
         </Link>
 
-        <a href={"https://pelumix.netlify.app/assets/resume.pdf"}>
+        <a href={"https://drive.google.com/file/d/1xugudsl-PQJUb5fkx-4TCQWHJeykY9wB/view"}>
           <p className=" mx-4 cursor-pointer">Resume</p>
         </a>
         <Link to="projects" spy={true} smooth={true}>
