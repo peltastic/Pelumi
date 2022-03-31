@@ -7,7 +7,7 @@ function SideNav({ show, clicked }) {
         !show ? "-translate-x-full" : null
       }`}
     >
-      <ul className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white flex items-center flex-col">
+      <ul className="absolute top-[45%] left-1/2 -translate-x-1/2 -translate-y-1/2 text-white flex items-center flex-col">
         <li className="my-2">
           <Link to="home" spy={true} smooth={true} onClick={clicked}>
             <p>HOME</p>
