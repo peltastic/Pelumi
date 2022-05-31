@@ -4,25 +4,9 @@ import { ProjectInfo } from "./ProjectInfo";
 import classes from "../styles/background.module.css";
 
 function Projects() {
-  const [file, setFile] = useState();
-  const upload = (e) => {
-    const file = e.target.files[0];
-    console.log(file);
-    setFile(file);
-  };
-  const send = () => {
-    fetch("https://techstore7.herokuapp.com/test")
-      .then((response) => response.json())
-      .then((json) => console.log(json))
-      .catch((err) => console.log(err));
-  };
 
   return (
     <>
-      <input type="file" onChange={upload} />
-      <button onClick={send} className="bg-white">
-        submit
-      </button>
       <div className="">
         <h1 className="text-white text-center">PROJECTS</h1>
         <div
