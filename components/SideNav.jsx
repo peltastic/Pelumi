@@ -24,7 +24,7 @@ function SideNav({ show, clicked }) {
           </Link>
         </li>
         <li className="my-2">
-          <a href={"https://pelumix.netlify.app/assets/resume.pdf"}>
+          <a href={"https://drive.google.com/file/d/13Rij9kFpMmfUgF93cYBiZx8726qWGYnU/view"}>
             <p>RESUME</p>
           </a>
         </li>

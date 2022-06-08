@@ -36,7 +36,7 @@ function Nav() {
 
         <a
           href={
-            "https://drive.google.com/file/d/1xugudsl-PQJUb5fkx-4TCQWHJeykY9wB/view"
+            "https://drive.google.com/file/d/13Rij9kFpMmfUgF93cYBiZx8726qWGYnU/view"
           }
         >
           <p className=" mx-4 cursor-pointer">Resume</p>

@@ -22,7 +22,7 @@ export default function Home() {
           <div
             className={`flex text-4xl w-6/12 justify-around m-auto mt-8 ${classes.social_links}`}
           >
-            <Link href="https://twitter.com/peltastic">
+            <Link href="https://twitter.com/peltastica">
               <a>
                 <BsTwitter className=" hover:translate-y-3 active:translate-y-1 transition-all" />
               </a>
