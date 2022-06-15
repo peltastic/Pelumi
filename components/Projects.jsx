@@ -85,7 +85,7 @@ const Projects = () => {
         {projectsList.map((item, index) => {
           return (
             <Project
-            key={index}
+              key={index}
               name={item.name}
               tech={item.tech}
               github={item.github}

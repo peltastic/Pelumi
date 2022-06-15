@@ -100,7 +100,6 @@ const NavMobile = () => {
           {list.map((items, index) => {
             return (
               <li
-               
                 ref={(e) => (listRefs.current[index] = e)}
                 key={index}
                 className="cursor-pointer my-8"
