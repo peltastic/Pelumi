@@ -1,56 +1,56 @@
-import { useState } from "react";
-import { AiOutlineHome } from "react-icons/ai";
+import { useContext } from "react";
+import { DarkModeIcon, Logo, LightModeIcon } from "./Icons";
 import { Link } from "react-scroll";
-import classes from "../styles/nav.module.css";
-import SideNav from "./SideNav";
-import Backdrop from "./Backdrop";
+import { ThemeContext } from "../components/ThemeContext";
 
-function Nav() {
-  const [openSidebar, setOpenSidebar] = useState(false);
-
-  const sidebarHandelr = () => {
-    setOpenSidebar(!openSidebar);
-  };
+const Nav = () => {
+  const { theme, setTheme } = useContext(ThemeContext);
   return (
-    <>
-      <div className="fixed z-50">
-        <div
-          className={`${classes.nav_mobile} py-1`}
-          onClick={sidebarHandelr}
-        >
-          <div className={`${openSidebar ? classes.nav_top : null} my-1`}></div>
-          <div className={`${openSidebar ? classes.nav_mid : null} my-1`}></div>
-          <div
-            className={`${openSidebar ? classes.nav_bottom : null} my-1`}
-          ></div>
-        </div>
-      </div>
-      <SideNav show={openSidebar} clicked={sidebarHandelr} />
-      {openSidebar ? <Backdrop /> : null}
-      <div
-        className={` flex z-50 fixed text-white items-center w-full h-12 custom-shadow bg-zinc-800 px-8 ${classes.nav_big}`}
-      >
-        <Link to="home" spy={true} smooth={true} className="mr-auto">
-          <AiOutlineHome className=" text-2xl cursor-pointer" />
-        </Link>
-
-        <a
-          href={
-            "https://drive.google.com/file/d/13Rij9kFpMmfUgF93cYBiZx8726qWGYnU/view"
-          }
-        >
-          <p className=" mx-4 cursor-pointer">Resume</p>
-        </a>
-        <Link to="projects" spy={true} smooth={true}>
-          <p className=" mx-4 cursor-pointer">Projects</p>
-        </Link>
-
-        <Link to="inspirations" spy={true} smooth={true}>
-          <p className=" mx-4 cursor-pointer">Inspirations</p>
-        </Link>
-      </div>
-    </>
+    <nav className=" max-w-[1450px] mx-auto fixed z-[100] bg-primary-light dark:bg-primary-dark px-12 py-6 top-[2rem] left-[50%] -translate-x-[50%] rounded-lg w-[90%] hidden sm:flex items-center">
+      <Logo />
+      <ul className="flex items-center ml-auto text-[#fff] text-2xl">
+        <li className="mx-5 cursor-pointer">
+          <Link to="home" spy={true} smooth={true}>
+            <p>Home</p>
+          </Link>
+        </li>
+        <li className="mx-5 cursor-pointer">
+          <Link to="about" spy={true} smooth={true}>
+            <p>About Me</p>
+          </Link>
+        </li>
+        <li className="mx-5 cursor-pointer">
+          <Link to="projects" spy={true} smooth={true}>
+            <p>Projects</p>
+          </Link>
+        </li>
+        <li className="mx-5 cursor-pointer">
+          <Link to="contact" spy={true} smooth={true}>
+            <p>Contact Me</p>
+          </Link>
+        </li>
+        <li className=" mx-5 cursor-pointer border border-[#fff] px-4 py-2 rounded-md">
+          <a href="https://drive.google.com/file/d/13Rij9kFpMmfUgF93cYBiZx8726qWGYnU/view">Resume</a>
+        </li>
+        <li className="cursor-pointer flex items-center">
+          {theme === "light" ? (
+            <button
+              className=""
+              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+            >
+              <DarkModeIcon />
+            </button>
+          ) : (
+            <button
+              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+            >
+              <LightModeIcon />
+            </button>
+          )}
+        </li>
+      </ul>
+    </nav>
   );
-}
+};
 
 export default Nav;

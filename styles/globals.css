@@ -1,35 +1,76 @@
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300;400;500;600;700&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Mulish:wght@400;600;700&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 @layer utilities {
-  .custom-shadow {
-    box-shadow: 0 2px 5px -2px gray ;
+  .center {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
-  .custom-top {
-    top: 45%;
-  }
-  .w30 {
-    width: 27%;
-  }
-
 }
 
-html,
-body {
-  padding: 0;
+* {
   margin: 0;
-  background-color: rgb(1, 0, 0);
-  font-family: 'Josefin Sans', sans-serif;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-
+html {
+  font-size: 62.5%;
+}
+@media (max-width: 1000px) {
+  html {
+    font-size: 55%;
+    color: #666666;
+  }
+}
+@media (max-width: 600px) {
+  html {
+    font-size: 40%;
+  }
+}
+body {
+  font-family: "Mulish", sans-serif;
+}
 
 a {
   text-decoration: none;
 }
 
-* {
-  box-sizing: border-box;
+.tech_store_light {
+  background-image: linear-gradient(105deg, #ff687f4a, #ff687f83),
+    url("../assets/techstore.png");
+  background-position: center;
+  background-size: cover;
+}
+.tech_store_dark {
+  background-image: linear-gradient(105deg, #8b0b1e58, #7517258f),
+    url("../assets/techstore.png");
+  background-position: center;
+  background-size: cover;
+}
+.youtube_light {
+  background-image: linear-gradient(105deg, #ff687f4a, #ff687f83),
+    url("../assets/youtube.png");
+  background-position: center;
+  background-size: cover;
+}
+.youtube_dark {
+  background-image: linear-gradient(105deg, #8b0b1e58, #7517258f),
+    url("../assets/youtube.png");
+  background-position: center;
+  background-size: cover;
+}
+.social_light {
+  background-image: linear-gradient(105deg, #ff687f4a, #ff687f83),
+    url("../assets/social.png");
+  background-position: center;
+  background-size: cover;
+}
+.social_dark {
+  background-image: linear-gradient(105deg, #8b0b1e58, #7517258f),
+    url("../assets/social.png");
+  background-position: center;
+  background-size: cover;
 }
