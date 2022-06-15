@@ -3,7 +3,7 @@ import LaptopImgDark from "../assets/laptopDark.svg";
 import Image from "next/image";
 import BackgroundImg from "../assets/projects.svg";
 import HeaderImg from "../assets/header.svg";
-import { ThemeContext } from "../components/ThemeContext";
+import { ThemeContext } from "./ThemeContext";
 import { useContext, useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
