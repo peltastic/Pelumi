@@ -8,12 +8,20 @@ import {
   LinkedInDark,
   MailDark,
 } from "../components/Icons";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { ThemeContext } from "../components/ThemeContext";
 import Link from "next/link";
 
 const Footer = () => {
   const { theme, setTheme } = useContext(ThemeContext);
+  const [isLight, setIsLight] = useState(true);
+  useEffect(() => {
+    if (theme === "light") {
+      setIsLight(true);
+    } else {
+      setIsLight(false);
+    }
+  }, [theme]);
   return (
     <footer
       id="contact"
@@ -33,29 +41,23 @@ const Footer = () => {
         <div className="w-full sm:w-auto flex items-center justify-center sm:justify-self-auto mt-28 sm:mt-auto mb-12 sm:mb-auto">
           <div className=" mx-8 cursor-pointer shadow-lg rounded-full ">
             <Link href="mailto:onosogapelumi@gmail.com">
-              <a>{theme === "light" ? <Mail /> : <MailDark />}</a>
+              <a>{isLight ? <Mail /> : <MailDark />}</a>
             </Link>
           </div>
 
           <div className=" mx-8 cursor-pointer shadow-lg rounded-full">
             <Link href="https://linkedin.com/in/pelumi-onasoga-4767081ba/">
-              <a>{theme === "light" ? <LinkedIn /> : <LinkedInDark />}</a>
+              <a>{isLight ? <LinkedIn /> : <LinkedInDark />}</a>
             </Link>
           </div>
           <div className="mx-8 cursor-pointer shadow-lg rounded-full">
             <Link href="https://twitter.com/peltastica">
-              <a>{theme === "light" ? <TwitterIcon /> : <TwitterIconDark />}</a>
+              <a>{isLight ? <TwitterIcon /> : <TwitterIconDark />}</a>
             </Link>
           </div>
           <div className="mx-8 cursor-pointer shadow-lg rounded-full">
             <Link href="https://github.com/peltastic">
-              <a>
-                {theme === "light" ? (
-                  <GithubFooterIcon />
-                ) : (
-                  <GithubFooterIconDark />
-                )}
-              </a>
+              <a>{isLight ? <GithubFooterIcon /> : <GithubFooterIconDark />}</a>
             </Link>
           </div>
         </div>

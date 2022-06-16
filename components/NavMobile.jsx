@@ -19,6 +19,14 @@ const NavMobile = () => {
     { to: "contact", name: "Contact Me" },
   ];
 
+  const [isLight, setIsLight] = useState(true);
+  useEffect(() => {
+    if (theme === "light") {
+      setIsLight(true);
+    } else {
+      setIsLight(false);
+    }
+  }, [theme]);
   useEffect(() => {
     menuTl
       .to(
@@ -63,10 +71,9 @@ const NavMobile = () => {
 
   return (
     <>
-     
       <div className=" rounded-full shadow-xl shadow-[#49494989] dark:shadow-none flex items-center justify-center sm:hidden z-50 fixed h-[5rem] w-[5rem] bottom-[4rem] right-[4rem]">
         <button onClick={() => setTheme(theme === "dark" ? "light" : "dark")}>
-          {theme === "light" ? <DarkModeIcon /> : <LightModeIcon />}
+          {isLight ? <DarkModeIcon /> : <LightModeIcon />}
         </button>
       </div>
       <div
@@ -99,7 +106,11 @@ const NavMobile = () => {
                 className="cursor-pointer my-8"
               >
                 <Link to={items.to} spy={true} smooth={true}>
-                  <p  onClick={toggleMenuTimeline} className="" ref={(e) => (menuBars["listItems"] = e)}>
+                  <p
+                    onClick={toggleMenuTimeline}
+                    className=""
+                    ref={(e) => (menuBars["listItems"] = e)}
+                  >
                     {items.name}
                   </p>
                 </Link>
@@ -108,11 +119,13 @@ const NavMobile = () => {
           })}
 
           <li
-            onClick={toggleMenuTimeline} 
+            onClick={toggleMenuTimeline}
             ref={(e) => (menuBars["resume"] = e)}
             className=" text-center cursor-pointer my-10 border border-[#fff] px-4 py-2 rounded-md"
           >
-            <a href="https://drive.google.com/file/d/13Rij9kFpMmfUgF93cYBiZx8726qWGYnU/view">Resume</a>
+            <a href="https://drive.google.com/file/d/13Rij9kFpMmfUgF93cYBiZx8726qWGYnU/view">
+              Resume
+            </a>
           </li>
         </ul>
       </nav>

@@ -12,6 +12,14 @@ const Header = () => {
   const [headerTl] = useState(gsap.timeline());
   const listRefs = useRef([]);
   const svgRef = useRef(null);
+  const [isLight, setIsLight] = useState(true);
+  useEffect(() => {
+    if (theme === "light") {
+      setIsLight(true);
+    } else {
+      setIsLight(false);
+    }
+  }, [theme]);
   useEffect(() => {
     headerTl
       .from(listRefs.current, { opacity: 0, y: 40, duration: 2 })
@@ -33,7 +41,7 @@ const Header = () => {
       </div>
       <div
         className={`absolute -top-[45rem] sm:-top-[30rem] lg:-top-[20rem] -right-[45rem] sm:-right-[30rem] lg:-right-[20rem] ${
-          theme === "light" ? "opacity-30" : "opacity-80"
+          isLight ? "opacity-30" : "opacity-80"
         }`}
       >
         <Image src={FlowerImg} />
