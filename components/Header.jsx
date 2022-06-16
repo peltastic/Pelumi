@@ -1,11 +1,11 @@
 import { useContext, useRef, useEffect, useState } from "react";
-import HeaderImg from "../assets/header.svg";
 import Image from "next/image";
 import TagImg from "../assets/tag.svg";
 import TagImgDark from "../assets/tag-dark.svg";
 import BackgroundImg from "../assets/projects.svg";
-import { ThemeContext } from "../components/ThemeContext";
 import { gsap } from "gsap";
+import FlowerImg from "../assets/flower.svg";
+import { ThemeContext } from "../components/ThemeContext";
 
 const Header = () => {
   const { theme } = useContext(ThemeContext);
@@ -26,13 +26,17 @@ const Header = () => {
   return (
     <header
       id="home"
-      className="flex max-w-[1650px] mx-auto max-h-[1000px] overflow-hidden justify-center w-full h-[100vh] px-10 py-24 relative"
+      className="flex mx-auto max-h-[1000px] overflow-hidden justify-center w-full h-[100vh] px-10 py-24 relative"
     >
-      <div className="absolute -top-[3rem] sm:-top-[10rem] -left-[30rem] md:-left-[20rem] z-0">
+      <div className="absolute -top-[3rem] sm:-top-[10rem] -left-[45rem] sm:-left-[30rem] md:-left-[20rem] z-0">
         <Image src={BackgroundImg} />
       </div>
-      <div className="hidden lg:block absolute -top-[30rem] lg:-top-[26rem]  -right-[30rem] md:-right-[20rem] lg:right-0 ">
-        <Image src={HeaderImg} width={600} />
+      <div
+        className={`absolute -top-[45rem] sm:-top-[30rem] lg:-top-[20rem] -right-[45rem] sm:-right-[30rem] lg:-right-[20rem] ${
+          theme === "light" ? "opacity-30" : "opacity-80"
+        }`}
+      >
+        <Image src={FlowerImg} />
       </div>
       <div className=" my-auto w-[50%]">
         <h2

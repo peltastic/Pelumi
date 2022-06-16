@@ -1,13 +1,30 @@
 import Link from "next/link";
 import { GithubIcon, LiveIcon } from "../components/Icons";
-import { useContext } from "react";
+import { useContext, useEffect, useRef } from "react";
 import { ThemeContext } from "../components/ThemeContext";
+import { gsap } from "gsap";
+import {ScrollTrigger} from "gsap/dist/ScrollTrigger"
 
 const Project = ({ name, tech, github, live, desc, classEl }) => {
+  gsap.registerPlugin(ScrollTrigger)
+  const projectRef = useRef(null)
+  useEffect(() => {
+    gsap.from(projectRef.current, {
+      opacity: 0,
+      y: 40,
+      scrollTrigger: {
+        trigger: projectRef.current,
+        top: "top bottom",
+        duration: 1,
+        delay: 1,
+        scale: 0,
+        toggleActions: "restart none none none",
+      }
+    })
+  }, [])
   const { theme, setTheme } = useContext(ThemeContext);
-  const skills = ["Nextjs", "Nodejs", "Postgres", "Tailwind"];
   return (
-    <div className="w-[350px] h-[450px] sm:h-[400px] sm:w-[400px] pb-10 mx-12 relative bg-[#fff]  z-50 rounded-2xl overflow-hidden shadow-2xl">
+    <div ref={projectRef} className=" w-[90%] sm:w-[70%] md:w-[45%] lg:w-[30%] h-[450px] mb-20 sm:h-[430px] lg:h-[420px] pb-10 mx-6 relative bg-[#fff]  z-50 rounded-2xl overflow-hidden shadow-2xl">
       <div
         className={`${
           theme === "dark" ? classEl[1] : classEl[0]

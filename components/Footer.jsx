@@ -39,7 +39,7 @@ const Footer = () => {
 
           <div className=" mx-8 cursor-pointer shadow-lg rounded-full">
             <Link href="https://linkedin.com/in/pelumi-onasoga-4767081ba/">
-              {theme === "light" ? <LinkedIn /> : <LinkedInDark />}
+              <a>{theme === "light" ? <LinkedIn /> : <LinkedInDark />}</a>
             </Link>
           </div>
           <div className="mx-8 cursor-pointer shadow-lg rounded-full">

@@ -1,8 +1,6 @@
 import LaptopImg from "../assets/laptop.svg";
 import LaptopImgDark from "../assets/laptopDark.svg";
 import Image from "next/image";
-import BackgroundImg from "../assets/projects.svg";
-import HeaderImg from "../assets/header.svg";
 import { ThemeContext } from "./ThemeContext";
 import { useContext, useRef, useEffect } from "react";
 import { gsap } from "gsap";
@@ -84,14 +82,8 @@ const AboutMe = () => {
     <section
       ref={sectioRef}
       id="about"
-      className="mt-[10rem] max-w-[1650px] max-h-[800px] mx-auto  sm:h-[90vh] px-10 relative overflow-hidden"
+      className="mt-[10rem] max-h-[800px] mx-auto  sm:h-[90vh] px-10 relative overflow-hidden"
     >
-      <div className="hidden lg:block absolute -top-[4rem] -right-[30rem] md:-right-[20rem] z-0">
-        <Image src={BackgroundImg} />
-      </div>
-      <div className=" hidden lg:block absolute -top-[30rem] lg:-top-[20rem] -left-[50rem] md-left-[40rem] lg:-left-[20rem] ">
-        <Image src={HeaderImg} />
-      </div>
       <h1 className="block font-secondary dark:text-[#fff] text-[3rem] text-center mb-[0rem]">
         About Me
       </h1>

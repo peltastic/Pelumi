@@ -63,13 +63,7 @@ const NavMobile = () => {
 
   return (
     <>
-      <div className="block z-[50] sm:hidden absolute top-[4rem] left-[4rem]">
-        {theme === "light" ? (
-          <Image src={LogoLight} />
-        ) : (
-          <Image src={LogoDark} />
-        )}
-      </div>
+     
       <div className=" rounded-full shadow-xl shadow-[#49494989] dark:shadow-none flex items-center justify-center sm:hidden z-50 fixed h-[5rem] w-[5rem] bottom-[4rem] right-[4rem]">
         <button onClick={() => setTheme(theme === "dark" ? "light" : "dark")}>
           {theme === "light" ? <DarkModeIcon /> : <LightModeIcon />}
@@ -77,19 +71,19 @@ const NavMobile = () => {
       </div>
       <div
         onClick={toggleMenuTimeline}
-        className="block sm:hidden fixed top-[2rem] z-[90] right-[2rem]"
+        className="block sm:hidden fixed top-[2rem] z-[90] left-[2rem]"
       >
         <div
           ref={(e) => (menuBars["topBar"] = e)}
-          className=" fixed dark:bg-primary-dark right-[4rem] top-[20px] w-[5rem]  h-[3px] my-3 rounded-full bg-primary-light"
+          className=" fixed dark:bg-primary-dark left-[4rem] top-[20px] w-[5rem]  h-[3px] my-3 rounded-full bg-primary-light"
         ></div>
         <div
           ref={(e) => (menuBars["middleBar"] = e)}
-          className=" fixed dark:bg-primary-dark right-[4rem] top-[30px] w-[6rem] h-[3px] my-3 rounded-full bg-primary-light"
+          className=" fixed dark:bg-primary-dark left-[4rem] top-[30px] w-[6rem] h-[3px] my-3 rounded-full bg-primary-light"
         ></div>
         <div
           ref={(e) => (menuBars["bottomBar"] = e)}
-          className="fixed dark:bg-primary-dark right-[4rem] top-[40px] w-[5rem] h-[3px] my-3 rounded-full bg-primary-light"
+          className="fixed dark:bg-primary-dark left-[4rem] top-[40px] w-[5rem] h-[3px] my-3 rounded-full bg-primary-light"
         ></div>
       </div>
       <nav

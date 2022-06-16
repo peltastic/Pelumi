@@ -22,7 +22,6 @@ html {
 @media (max-width: 1000px) {
   html {
     font-size: 55%;
-    color: #666666;
   }
 }
 @media (max-width: 600px) {
@@ -40,37 +39,37 @@ a {
 
 .tech_store_light {
   background-image: linear-gradient(105deg, #ff687f4a, #ff687f83),
-    url("../assets/techstore.png");
+    url("https://firebasestorage.googleapis.com/v0/b/portfolio-project-images.appspot.com/o/Screenshot%20(55).png?alt=media&token=675c123c-48fb-4772-9611-d239b4b228d7");
   background-position: center;
   background-size: cover;
 }
 .tech_store_dark {
   background-image: linear-gradient(105deg, #8b0b1e58, #7517258f),
-    url("../assets/techstore.png");
+    url("https://firebasestorage.googleapis.com/v0/b/portfolio-project-images.appspot.com/o/Screenshot%20(55).png?alt=media&token=675c123c-48fb-4772-9611-d239b4b228d7");
   background-position: center;
   background-size: cover;
 }
 .youtube_light {
   background-image: linear-gradient(105deg, #ff687f4a, #ff687f83),
-    url("../assets/youtube.png");
+    url("https://firebasestorage.googleapis.com/v0/b/portfolio-project-images.appspot.com/o/Screenshot%20(59).png?alt=media&token=a8434dbd-bc21-42a2-bda7-7bc019f98aaf");
   background-position: center;
   background-size: cover;
 }
 .youtube_dark {
   background-image: linear-gradient(105deg, #8b0b1e58, #7517258f),
-    url("../assets/youtube.png");
+    url("https://firebasestorage.googleapis.com/v0/b/portfolio-project-images.appspot.com/o/Screenshot%20(59).png?alt=media&token=a8434dbd-bc21-42a2-bda7-7bc019f98aaf");
   background-position: center;
   background-size: cover;
 }
 .social_light {
   background-image: linear-gradient(105deg, #ff687f4a, #ff687f83),
-    url("../assets/social.png");
+    url("https://firebasestorage.googleapis.com/v0/b/portfolio-project-images.appspot.com/o/Screenshot%20(57).png?alt=media&token=a03a6bd2-618b-434e-a15c-d6aa43fe6998");
   background-position: center;
   background-size: cover;
 }
 .social_dark {
   background-image: linear-gradient(105deg, #8b0b1e58, #7517258f),
-    url("../assets/social.png");
+    url("https://firebasestorage.googleapis.com/v0/b/portfolio-project-images.appspot.com/o/Screenshot%20(57).png?alt=media&token=a03a6bd2-618b-434e-a15c-d6aa43fe6998");
   background-position: center;
   background-size: cover;
 }

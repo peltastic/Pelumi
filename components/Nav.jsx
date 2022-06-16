@@ -6,7 +6,7 @@ import { ThemeContext } from "../components/ThemeContext";
 const Nav = () => {
   const { theme, setTheme } = useContext(ThemeContext);
   return (
-    <nav className=" max-w-[1450px] mx-auto fixed z-[100] bg-primary-light dark:bg-primary-dark px-12 py-6 top-[2rem] left-[50%] -translate-x-[50%] rounded-lg w-[90%] hidden sm:flex items-center">
+    <nav className="  mx-auto fixed z-[100] bg-primary-light dark:bg-primary-dark px-12 py-6 top-[2rem] left-[50%] -translate-x-[50%] rounded-lg w-[90%] hidden sm:flex items-center">
       <Logo />
       <ul className="flex items-center ml-auto text-[#fff] text-2xl">
         <li className="mx-5 cursor-pointer">
