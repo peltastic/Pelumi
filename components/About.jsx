@@ -2,9 +2,10 @@ import LaptopImg from "../assets/laptop.svg";
 import LaptopImgDark from "../assets/laptopDark.svg";
 import Image from "next/image";
 import { ThemeContext } from "./ThemeContext";
-import { useContext, useRef, useEffect } from "react";
+import { useContext, useRef, useEffect, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import FlowerImg from "../assets/flower.svg";
 const AboutMe = () => {
   gsap.registerPlugin(ScrollTrigger);
   const { theme, setTheme } = useContext(ThemeContext);
@@ -22,6 +23,14 @@ const AboutMe = () => {
     "POSTGRES",
     "FIREBASE",
   ];
+  const [isLight, setIsLight] = useState(true);
+  useEffect(() => {
+    if (theme === "light") {
+      setIsLight(true);
+    } else {
+      setIsLight(false);
+    }
+  }, [theme]);
   useEffect(() => {
     gsap.from(topTextRef.current, {
       opacity: 0,
@@ -82,8 +91,9 @@ const AboutMe = () => {
     <section
       ref={sectioRef}
       id="about"
-      className="mt-[10rem] max-h-[800px] mx-auto  sm:h-[90vh] px-10 relative overflow-hidden"
+      className=" max-h-[800px] mx-auto sm:h-[90vh] px-10 relative overflow-hidden"
     >
+  
       <h1 className="block font-secondary dark:text-[#fff] text-[3rem] text-center mb-[0rem]">
         About Me
       </h1>

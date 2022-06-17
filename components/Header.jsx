@@ -46,6 +46,7 @@ const Header = () => {
       >
         <Image src={FlowerImg} />
       </div>
+     
       <div className=" my-auto w-[50%]">
         <h2
           ref={(e) => (listRefs.current[1] = e)}

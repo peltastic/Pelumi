@@ -5,7 +5,7 @@ import { ThemeContext } from "../components/ThemeContext";
 import { gsap } from "gsap";
 import {ScrollTrigger} from "gsap/dist/ScrollTrigger"
 
-const Project = ({ name, tech, github, live, desc, classEl }) => {
+const Project = ({ name, tech, github, live, desc, classEl, link }) => {
   gsap.registerPlugin(ScrollTrigger)
   const projectRef = useRef(null)
   useEffect(() => {
@@ -44,7 +44,7 @@ const Project = ({ name, tech, github, live, desc, classEl }) => {
             </div>
           ))}
         </div>
-        <p className="mt-[2rem] text-4xl sm:text-lg font-bold">{desc}</p>
+        <p className="mt-[2rem] text-4xl sm:text-lg font-bold">{desc} <span>{link?<a className="underline" href={link}>{link}</a>:null}</span></p>
         <div className=" absolute left-[3rem] bottom-[2rem] mt-9 flex items-center text-grey-secondary">
           <Link href={live}>
             <a className="flex items-center mr-8">

@@ -32,10 +32,11 @@ const Projects = () => {
     {
       name: "Interior Page Design Implementation ",
       tech: ["React", "Taiwind", "Gsap"],
-      github: "",
-      live: "",
-      desc: "Coming soon..",
-      class: [],
+      github: "https://github.com/peltastic/interior-design",
+      live: "https://interior-design-liart.vercel.app/",
+      desc: "Implementation of A Landing Page for an Interior Decoration Site Designed by",
+      class: ["interior_light", "interior_dark"],
+      link: "https://www.behance.net/onasanyahabeeb1"
     },
     {
       name: "Finance Site Design Implementation",
@@ -50,7 +51,7 @@ const Projects = () => {
   return (
     <section
       id="projects"
-      className=" w-full mx-auto mt-[10rem]  relative"
+      className=" w-full mx-auto relative"
     >
       <h1 className="font-secondary dark:text-[#fff] text-[3rem] text-center mb-[15rem] sm:mb-[6rem]">
         Projects
@@ -67,6 +68,7 @@ const Projects = () => {
               live={item.live}
               desc={item.desc}
               classEl={item.class}
+              link={item?.link}
             />
           );
         })}
