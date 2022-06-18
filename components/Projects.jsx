@@ -16,7 +16,7 @@ const Projects = () => {
       name: "Youtube Clone",
       tech: ["Nextjs", "Firebase", "Tailwind"],
       github: "https://github.com/peltastic/YOUTUBE_CLONE",
-      live: "https://social-media-app-with-react-and-firebase.vercel.app/",
+      live: "https://youtube-clone-wine.vercel.app/",
       desc: "A youtube clone/like app which allows users to create a channel, subscribe to a channel, watch videos posted by a channel, like/dislike videos, delete/post videos, create a playlist of videos.",
       class: ["youtube_light", "youtube_dark"],
     },
@@ -25,7 +25,7 @@ const Projects = () => {
       tech: ["Nextjs", "Firebase", "tailwind"],
       github:
         "https://github.com/peltastic/Social-Media-App-With-React-and-Firebase",
-      live: "https://youtube-clone-wine.vercel.app/",
+      live: "https://social-media-app-with-react-and-firebase.vercel.app/",
       desc: "A social media app where the user can share photos, like and comments on posts",
       class: ["social_light", "social_dark"],
     },
@@ -36,7 +36,7 @@ const Projects = () => {
       live: "https://interior-design-liart.vercel.app/",
       desc: "Implementation of A Landing Page for an Interior Decoration Site Designed by",
       class: ["interior_light", "interior_dark"],
-      link: "https://www.behance.net/onasanyahabeeb1"
+      link: "https://www.behance.net/onasanyahabeeb1",
     },
     {
       name: "Finance Site Design Implementation",
@@ -47,13 +47,10 @@ const Projects = () => {
       class: [],
     },
   ];
-  useEffect(() => {})
+  useEffect(() => {});
   return (
-    <section
-      id="projects"
-      className=" w-full mx-auto relative"
-    >
-      <h1 className="font-secondary dark:text-[#fff] text-[3rem] text-center mb-[15rem] sm:mb-[6rem]">
+    <section id="projects" className=" w-full mx-auto relative mt-[20rem] sm:mt-1">
+      <h1 className="font-secondary  dark:text-[#fff] text-[3rem] text-center mb-[15rem] sm:mb-[6rem]">
         Projects
       </h1>
 

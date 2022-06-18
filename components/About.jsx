@@ -91,7 +91,7 @@ const AboutMe = () => {
     <section
       ref={sectioRef}
       id="about"
-      className=" max-h-[800px] mx-auto sm:h-[90vh] px-10 relative overflow-hidden"
+      className=" max-h-[800px] mt-4 mx-auto sm:h-[90vh] px-10 relative overflow-hidden"
     >
   
       <h1 className="block font-secondary dark:text-[#fff] text-[3rem] text-center mb-[0rem]">
