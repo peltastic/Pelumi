@@ -1,19 +1,16 @@
 import LaptopImg from "../assets/laptop.svg";
 import LaptopImgDark from "../assets/laptopDark.svg";
 import Image from "next/image";
-import { ThemeContext } from "./ThemeContext";
-import { useContext, useRef, useEffect, useState } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import FlowerImg from "../assets/flower.svg";
+import { motion, useAnimation } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import { useEffect } from "react";
+import {
+  scaleUpVariant,
+  slideInVariant,
+  headerVariants,
+  lineVariants,
+} from "../variants/variants";
 const AboutMe = () => {
-  gsap.registerPlugin(ScrollTrigger);
-  const { theme, setTheme } = useContext(ThemeContext);
-  const topTextRef = useRef(null);
-  const bottomTextRef = useRef(null);
-  const sectioRef = useRef(null);
-  const laptopRef = useRef(null);
-  const skillsRef = useRef([]);
   const skills = [
     "HTML",
     "CSS/TAILWIND",
@@ -23,122 +20,107 @@ const AboutMe = () => {
     "POSTGRES",
     "FIREBASE",
   ];
-  const [isLight, setIsLight] = useState(true);
+  const controls = useAnimation();
+  const [ref, inView] = useInView();
+  const [bodyRef, bodyInView] = useInView()
+  // const { scrollYProgress } = useViewportScroll()
+  // const initial = useTransform(scrollYProgress, x => x + 0.05);
+
   useEffect(() => {
-    if (theme === "light") {
-      setIsLight(true);
+    if (inView) {
+      controls.start("visible");
     } else {
-      setIsLight(false);
+      controls.start("hidden");
     }
-  }, [theme]);
+  }, [controls, inView]);
+
   useEffect(() => {
-    gsap.from(topTextRef.current, {
-      opacity: 0,
-      y: 40,
-      duration: 0.5,
-      scale: 0.9,
-      scrollTrigger: {
-        trigger: topTextRef.current,
-        start: "top bottom",
-        toggleActions: "restart none none none",
-        delay: 0.3,
-      },
-    });
-    gsap.from(bottomTextRef.current, {
-      opacity: 0,
-      y: 40,
-      duration: 0.5,
-      scale: 0.9,
-      scrollTrigger: {
-        trigger: bottomTextRef.current,
-        start: "top bottom",
-        toggleActions: "restart none none none",
-        delay: 0.3,
-      },
-    });
-    gsap.from(skillsRef.current, {
-      opacity: 0,
-      y: 40,
-      duration: 0.5,
-      scale: 0.9,
-      scrollTrigger: {
-        trigger: skillsRef.current,
-        start: "top bottom",
-        toggleActions: "restart none none none",
-        delay: 0.3,
-      },
-    });
-    gsap.from(laptopRef.current, {
-      x: -40,
-      duration: 0.5,
-      opacity: 0,
-      scrollTrigger: {
-        trigger: laptopRef.current,
-        start: "top bottom",
-        toggleActions: "restart none none none",
-        delay: 0.3,
-      },
-    });
-    gsap.from(laptopRef.current, {
-      y: -20,
-      duration: 1,
-      repeat: -1,
-      yoyo: true,
-      delay: 0.5
-    });
-  }, []);
+    if (inView) {
+      controls.start("visible");
+    } else {
+      controls.start("hidden");
+    }
+  }, [controls, bodyInView]);
+
   return (
     <section
-      ref={sectioRef}
       id="about"
-      className=" max-h-[800px] mt-4 mx-auto sm:h-[90vh] px-10 relative overflow-hidden"
+      className=" max-h-[800px] mt-[10rem] mx-auto sm:h-[90vh] relative overflow-hidden"
     >
-  
-      <h1 className="block font-secondary dark:text-[#fff] text-[3rem] text-center mb-[0rem]">
+      <motion.h1
+        ref={ref}
+        variants={headerVariants(100)}
+        initial="hidden"
+        animate={controls}
+        className="block mt-[5rem] sm:mt-0 font-secondary py-12 sm:py-0 text-[#fff] text-[3rem] text-right px-[5rem]"
+      >
         About Me
-      </h1>
+      </motion.h1>
+      {/* block relative w-full h-[2px] */}
+      <motion.div
+        ref={ref}
+        variants={lineVariants("-100%")}
+        initial="hidden"
+        animate={controls}
+        className=" w-full h-[2px]  bg-primary-dark"
+      ></motion.div>
+
       <div className="flex justify-center h-full sm:items-center sm:-mt-[2rem]">
-        <div
-          ref={laptopRef}
+        <motion.div
+          ref={bodyRef}
+          variants={slideInVariant(0, -150)}
+          initial="hidden"
+          animate={controls}
           className="w-[50%] my-auto hidden sm:flex justify-center"
         >
-          {theme === "light" ? (
-            <Image src={LaptopImg} />
-          ) : (
-            <Image src={LaptopImgDark} />
-          )}
-        </div>
+          <Image src={LaptopImgDark} />
+        </motion.div>
 
         <div className="w-[90%] sm:w-[50%] sm:my-auto px-[2rem] md:px-[5rem] text-5xl sm:text-2xl mt-[10rem] sm:mt-auto  text-[#252525]">
-          <p
-            ref={topTextRef}
-            className="mb-[2rem] font-normal sm:font-bold dark:text-[#fff] sm:dark:text-[#c2c1c1]"
+          <motion.p
+            ref={bodyRef}
+            variants={scaleUpVariant(.2)}
+            initial="hidden"
+            animate={controls}
+            className="mb-[2rem] font-normal sm:font-bold text-[#ffffff]"
           >
             I'm a frontend engineer with the drive of solving and researching on
             frontend related problems to improve my knowledge, implement them on
             my projects and learn from them to provide solutions.{" "}
-          </p>
-          <p
-            ref={bottomTextRef}
-            className="mb-[10rem] sm:mb-auto font-normal sm:font-bold dark:text-[#fff] sm:dark:text-[#c2c1c1]"
+          </motion.p>
+          <motion.p
+            ref={bodyRef}
+            variants={scaleUpVariant(.2)}
+            initial="hidden"
+            animate={controls}
+            className="mb-[10rem] sm:mb-auto font-normal sm:font-bold text-[#ffffff]"
           >
             I have a passion for the software engineering ecosystem and love
             implementing peoples ideas,designs and solutions into software. I
             believe in others around me and myself. Though i am familiar and use
             backend technologies, i focus more on the frontend side of things.
-          </p>
-          <h1 className="mt-16 mb-8 text-center font-secondary text-[#282828] dark:text-[#fff] text-4xl">
+          </motion.p>
+          <motion.h1
+            ref={bodyRef}
+            variants={scaleUpVariant()}
+            initial="hidden"
+            animate={controls}
+            className="mt-16 mb-8 text-center font-secondary text-[#fff] text-4xl"
+          >
             SKILLS
-          </h1>
+          </motion.h1>
           <div className="flex flex-wrap justify-center text-lg w-full">
             {skills.map((item, index) => (
-              <div
+              <motion.div
+                ref={bodyRef}
+                variants={slideInVariant(index * 0.1, 40)}
+                initial="hidden"
+                animate={controls}
                 key={index}
-                ref={(e) => (skillsRef.current[index] = e)}
-                className="text-3xl sm:text-xl px-10 sm:px-4 py-3  sm:py-1 mx-4 sm:mx-2 my-4 sm:my-2 bg-primary-light dark:bg-primary-dark rounded-full text-[#fff] shadow-md"
+                className="text-3xl sm:text-xl px-10 sm:px-4 py-3  sm:py-1 mx-4 sm:mx-2 my-4 sm:my-2 bg-primary-dark rounded-full text-[#fff] shadow-md"
               >
                 <p>{item}</p>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>

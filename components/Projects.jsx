@@ -1,61 +1,43 @@
-import Image from "next/image";
 import Project from "./Project";
-import { useRef, useEffect } from "react";
+import { useEffect } from "react";
+import { ProjectList } from "../data/project";
+import { motion, useAnimation } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import {headerVariants, lineVariants} from "../variants/variants"
+export 
 
 const Projects = () => {
-  const projectsList = [
-    {
-      name: "TechStore",
-      tech: ["Nextjs", "Nodejs", "Postgres", "Tailwind"],
-      github: "https://github.com/peltastic/techstore_frontend",
-      live: "https://techstore8.vercel.app/",
-      desc: "Basic e-commerce web store workflow, admins can add products to the store, users can save products to cart and make orders",
-      class: ["tech_store_light", "tech_store_dark"],
-    },
-    {
-      name: "Youtube Clone",
-      tech: ["Nextjs", "Firebase", "Tailwind"],
-      github: "https://github.com/peltastic/YOUTUBE_CLONE",
-      live: "https://youtube-clone-wine.vercel.app/",
-      desc: "A youtube clone/like app which allows users to create a channel, subscribe to a channel, watch videos posted by a channel, like/dislike videos, delete/post videos, create a playlist of videos.",
-      class: ["youtube_light", "youtube_dark"],
-    },
-    {
-      name: "Social Media App Concept",
-      tech: ["Nextjs", "Firebase", "tailwind"],
-      github:
-        "https://github.com/peltastic/Social-Media-App-With-React-and-Firebase",
-      live: "https://social-media-app-with-react-and-firebase.vercel.app/",
-      desc: "A social media app where the user can share photos, like and comments on posts",
-      class: ["social_light", "social_dark"],
-    },
-    {
-      name: "Interior Page Design Implementation ",
-      tech: ["React", "Taiwind", "Gsap"],
-      github: "https://github.com/peltastic/interior-design",
-      live: "https://interior-design-liart.vercel.app/",
-      desc: "Implementation of A Landing Page for an Interior Decoration Site Designed by",
-      class: ["interior_light", "interior_dark"],
-      link: "https://www.behance.net/onasanyahabeeb1",
-    },
-    {
-      name: "Finance Site Design Implementation",
-      tech: ["React", "Tailwind", "Gsap"],
-      github: "",
-      live: "",
-      desc: "Coming soon...",
-      class: [],
-    },
-  ];
-  useEffect(() => {});
+  const controls = useAnimation();
+  const [ref, inView] = useInView();
+  useEffect(() => {
+    if (inView) {
+      controls.start("visible");
+    } else {
+      controls.start("hidden");
+    }
+  }, [controls, inView]);
   return (
-    <section id="projects" className=" w-full mx-auto relative mt-[20rem] sm:mt-1">
-      <h1 className="font-secondary  dark:text-[#fff] text-[3rem] text-center mb-[15rem] sm:mb-[6rem]">
+    <section
+      id="projects"
+      className=" w-full mx-auto relative mt-[20rem] sm:mt-1 overflow-hidden"
+    >
+      <motion.h1
+      ref={ref}
+      variants={headerVariants(-100)}
+      initial="hidden"
+      animate={controls}
+       className="pl-[4rem] sm:pl-[7rem] py-12 sm:py-0 font-secondary  text-[#fff] text-[3rem] text-left">
         Projects
-      </h1>
+      </motion.h1>
+      <motion.div 
+      ref={ref}
+      variants={lineVariants("100%")}
+      initial="hidden"
+      animate={controls}
+      className=" w-full h-[2px] bg-primary-dark  mb-[15rem] sm:mb-[6rem]"></motion.div>
 
-      <div className="flex md:pl-[5rem] flex-wrap items-start projects sm:h-full  my-auto  w-full justify-center md:justify-start">
-        {projectsList.map((item, index) => {
+      <div className="flex md:pl-[2rem] flex-wrap items-start sm:h-full  my-auto w-full justify-center md:justify-start">
+        {ProjectList.map((item, index) => {
           return (
             <Project
               key={index}

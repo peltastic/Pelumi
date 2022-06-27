@@ -1,134 +1,106 @@
-import { gsap } from "gsap";
-import { useRef, useState, useEffect, useContext } from "react";
 import { Link } from "react-scroll";
-import Image from "next/image";
-import LogoDark from "../assets/logoMobileDark.svg";
-import LogoLight from "../assets/logoMobileLight.svg";
-import { DarkModeIcon, LightModeIcon } from "../components/Icons";
-import { ThemeContext } from "../components/ThemeContext";
-const NavMobile = () => {
-  const { theme, setTheme } = useContext(ThemeContext);
-  const [menuTl] = useState(gsap.timeline({ paused: true }));
-  const listRefs = useRef([]);
+import { useRef, useState } from "react";
+import { motion, useCycle } from "framer-motion";
+import {
+  navRotate,
+  slideOutVariant,
+  slideInVariant,
+  fadeUp,
+} from "../variants/variants";
 
-  const menuBars = {};
+const NavMobile = () => {
+  const [openSideBar, setOpenSidebar] = useState(false);
   const list = [
     { to: "home", name: "Home" },
     { to: "about", name: "About Me" },
     { to: "projects", name: "Projects" },
     { to: "contact", name: "Contact Me" },
   ];
-
-  const [isLight, setIsLight] = useState(true);
-  useEffect(() => {
-    if (theme === "light") {
-      setIsLight(true);
-    } else {
-      setIsLight(false);
-    }
-  }, [theme]);
-  useEffect(() => {
-    menuTl
-      .to(
-        menuBars.topBar,
-        {
-          duration: 0.2,
-          rotation: 45,
-          top: 30,
+  const sidebar = (height) => {
+    return {
+      open: {
+        clipPath: `circle(${height * 2 + 200}px at 93vw 4rem)`,
+        transition: {
+          type: "spring",
+          stiffness: 20,
+          restDelta: 2,
         },
-        0
-      )
-      .to(
-        menuBars.middleBar,
-        { duration: 0.2, opacity: 0, ease: "expo" },
-        "-=0.2"
-      )
-      .to(
-        menuBars.bottomBar,
-        { duration: 0.2, rotation: -45, top: 30 },
-        "-=0.2"
-      )
-      .to(menuBars.navBar, { duration: 0.2, x: 0 }, "-=0.2")
-      .from(listRefs.current, {
-        opacity: 0,
-        y: 10,
-        duration: 0.2,
-      })
-      .from(
-        menuBars.resume,
-        {
-          opacity: 0,
-          y: 10,
-          duration: 0.2,
+      },
+      close: {
+        clipPath: "circle(0px at 93vw 4rem)",
+        transition: {
+          // delay: 0.5,
+          type: "spring",
+          stiffness: 400,
+          damping: 40,
         },
-        "-=0.2"
-      )
-      .reverse();
-  }, []);
-  const toggleMenuTimeline = () => {
-    menuTl.reversed(!menuTl.reversed());
+      },
+    };
   };
 
   return (
     <>
-      <div className=" rounded-full shadow-xl shadow-[#49494989] dark:shadow-none flex items-center justify-center sm:hidden z-50 fixed h-[5rem] w-[5rem] bottom-[4rem] right-[4rem]">
-        <button onClick={() => setTheme(theme === "dark" ? "light" : "dark")}>
-          {isLight ? <DarkModeIcon /> : <LightModeIcon />}
-        </button>
-      </div>
-      <div
-        onClick={toggleMenuTimeline}
-        className="block sm:hidden fixed top-[2rem] z-[90] left-[2rem]"
+    <div className="bg-[#000]  w-full h-[60px] z-40 fixed top-0 left-0 block sm:hidden "></div>
+      <button
+        onClick={() => {
+          setOpenSidebar(!openSideBar);
+        }}
+        className="outline-none block sm:hidden fixed z-[100] w-[45px] h-[30px] right-[4rem] top-[5rem] "
       >
-        <div
-          ref={(e) => (menuBars["topBar"] = e)}
-          className=" fixed dark:bg-primary-dark left-[4rem] top-[20px] w-[5rem]  h-[3px] my-3 rounded-full bg-primary-light"
-        ></div>
-        <div
-          ref={(e) => (menuBars["middleBar"] = e)}
-          className=" fixed dark:bg-primary-dark left-[4rem] top-[30px] w-[6rem] h-[3px] my-3 rounded-full bg-primary-light"
-        ></div>
-        <div
-          ref={(e) => (menuBars["bottomBar"] = e)}
-          className="fixed dark:bg-primary-dark left-[4rem] top-[40px] w-[5rem] h-[3px] my-3 rounded-full bg-primary-light"
-        ></div>
-      </div>
-      <nav
-        ref={(e) => (menuBars["navBar"] = e)}
-        className="block sm:hidden fixed top-[0] right-[0] bg-[#de596d] dark:bg-[#a8162c] px-8 py-8 h-[100vh] z-[70] w-full translate-x-[100%]"
+        <motion.div
+          animate={openSideBar ? "open" : "close"}
+          variants={navRotate(45)}
+          className="absolute top-0 right-[1rem] bg-primary-dark h-[4px] w-[30px] rounded-full"
+        ></motion.div>
+        <motion.div
+          animate={openSideBar ? "open" : "close"}
+          variants={slideOutVariant(100)}
+          className="absolute top-6 right-[1rem] bg-primary-dark h-[4px] w-[35px] rounded-full"
+        ></motion.div>
+        <motion.div
+          animate={openSideBar ? "open" : "close"}
+          variants={navRotate(-45)}
+          className="absolute top-12 right-[1rem] bg-primary-dark h-[4px] w-[25px] rounded-full"
+        ></motion.div>
+      </button>
+      <motion.nav
+        variants={sidebar(1000)}
+        className="bg-[#7aff1b] z-[90] block sm:hidden fixed top-[0rem] right-[0rem] h-screen w-full"
+        animate={openSideBar ? "open" : "close"}
       >
-        <ul className="text-[#fff] text-[4rem] fixed top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%]">
+        <motion.ul className="text-[#fff] text-[4rem] fixed top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%]">
           {list.map((items, index) => {
             return (
-              <li
-                ref={(e) => (listRefs.current[index] = e)}
+              <motion.li
+                animate={openSideBar ? "visible" : "hidden"}
+                variants={fadeUp(0.5 + index * 0.1)}
                 key={index}
                 className="cursor-pointer my-8"
+                
               >
                 <Link to={items.to} spy={true} smooth={true}>
-                  <p
-                    onClick={toggleMenuTimeline}
-                    className=""
-                    ref={(e) => (menuBars["listItems"] = e)}
-                  >
-                    {items.name}
-                  </p>
+                  <p onClick={() => setOpenSidebar(!openSideBar)} className="">{items.name}</p>
                 </Link>
-              </li>
+              </motion.li>
             );
           })}
-
-          <li
-            onClick={toggleMenuTimeline}
-            ref={(e) => (menuBars["resume"] = e)}
+          <motion.li
+            animate={openSideBar ? "visible" : "hidden"}
+            variants={fadeUp(0.5 + 5 * 0.1)}
             className=" text-center cursor-pointer my-10 border border-[#fff] px-4 py-2 rounded-md"
           >
             <a href="https://drive.google.com/file/d/13Rij9kFpMmfUgF93cYBiZx8726qWGYnU/view">
               Resume
             </a>
-          </li>
-        </ul>
-      </nav>
+          </motion.li>
+        </motion.ul>
+      </motion.nav>
+      {/* <motion.nav 
+      animate={openSideBar ? "open" : "close"}
+       className="block sm:hidden fixed top-[0] right-[0] bg-[#a8162c] px-8 py-8 h-[100vh] z-[70] w-full translate-x-[100%]">
+       
+        
+      </motion.nav> */}
     </>
   );
 };
