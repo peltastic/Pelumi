@@ -19,7 +19,7 @@ const NavMobile = () => {
   const sidebar = (height) => {
     return {
       open: {
-        clipPath: `circle(${height * 2 + 200}px at 93vw 4rem)`,
+        clipPath: `circle(${height * 2 + 200}px at 90vw 6rem)`,
         transition: {
           type: "spring",
           stiffness: 20,
@@ -27,7 +27,7 @@ const NavMobile = () => {
         },
       },
       close: {
-        clipPath: "circle(0px at 93vw 4rem)",
+        clipPath: "circle(0px at 90vw 6rem)",
         transition: {
           // delay: 0.5,
           type: "spring",
