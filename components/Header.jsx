@@ -74,7 +74,7 @@ const Header = () => {
             <motion.path
               d="M2.5 93.0994L151.482 2.92831L298.169 93.0881V228.046L151.482 316.12L2.5 228.035V93.0994Z"
               stroke="#fff"
-              stroke-width="5"
+              strokeWidth="5"
               variants={draw}
               custom={1.5}
             />

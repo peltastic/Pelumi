@@ -22,25 +22,26 @@ const AboutMe = () => {
   ];
   const controls = useAnimation();
   const [ref, inView] = useInView();
-  const [bodyRef, bodyInView] = useInView()
+  const [bodyRef, bodyInView] = useInView();
+  const [text1Ref, text1InView] = useInView();
+  const [text2Ref, text2InView] = useInView();
+  const [skillsRef, skillsInView] = useInView();
   // const { scrollYProgress } = useViewportScroll()
   // const initial = useTransform(scrollYProgress, x => x + 0.05);
 
   useEffect(() => {
-    if (inView) {
-      controls.start("visible");
-    } else {
-      controls.start("hidden");
-    }
-  }, [controls, inView]);
+    viewHandler(inView);
+    viewHandler(text1InView);
+    viewHandler(text2InView);
+    viewHandler(skillsInView);
+    viewHandler(bodyInView);
+  }, [controls, inView, text1InView, text2InView, skillsInView, bodyInView]);
 
-  useEffect(() => {
-    if (inView) {
+  const viewHandler = (view) => {
+    if (view) {
       controls.start("visible");
-    } else {
-      controls.start("hidden");
     }
-  }, [controls, bodyInView]);
+  };
 
   return (
     <section
@@ -78,8 +79,8 @@ const AboutMe = () => {
 
         <div className="w-[90%] sm:w-[50%] sm:my-auto px-[2rem] md:px-[5rem] text-5xl sm:text-2xl mt-[10rem] sm:mt-auto  text-[#252525]">
           <motion.p
-            ref={bodyRef}
-            variants={scaleUpVariant(.2)}
+            ref={text1Ref}
+            variants={scaleUpVariant(0.2)}
             initial="hidden"
             animate={controls}
             className="mb-[2rem] font-normal sm:font-bold text-[#ffffff]"
@@ -89,8 +90,8 @@ const AboutMe = () => {
             my projects and learn from them to provide solutions.{" "}
           </motion.p>
           <motion.p
-            ref={bodyRef}
-            variants={scaleUpVariant(.2)}
+            ref={text2Ref}
+            variants={scaleUpVariant(0.2)}
             initial="hidden"
             animate={controls}
             className="mb-[10rem] sm:mb-auto font-normal sm:font-bold text-[#ffffff]"
@@ -101,7 +102,7 @@ const AboutMe = () => {
             backend technologies, i focus more on the frontend side of things.
           </motion.p>
           <motion.h1
-            ref={bodyRef}
+            ref={skillsRef}
             variants={scaleUpVariant()}
             initial="hidden"
             animate={controls}
@@ -112,8 +113,8 @@ const AboutMe = () => {
           <div className="flex flex-wrap justify-center text-lg w-full">
             {skills.map((item, index) => (
               <motion.div
-                ref={bodyRef}
-                variants={slideInVariant(index * 0.1, 40)}
+                ref={skillsRef}
+                variants={slideInVariant(1 + index * 0.1, 40)}
                 initial="hidden"
                 animate={controls}
                 key={index}
