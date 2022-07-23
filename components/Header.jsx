@@ -133,10 +133,6 @@ const Header = () => {
             WEB <span className="text-primary-dark">DEVELOPER</span>{" "}
           </motion.h1>
         </div>
-        {/* <div className="my-auto w-[40%] h-full relative"> */}
-        {/* <div className="h-screen absolute top-0 right-0">
-          <Image src={BackgroundImg} />
-        </div> */}
         <div className="w-full h-[20px] bg-gradient-to-t from-[#000000] to-[#00000021] absolute bottom-0 left-0"></div>
       </header>
     </>

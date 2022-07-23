@@ -40,7 +40,7 @@ const NavMobile = () => {
 
   return (
     <>
-    <div className="bg-[#000]  w-full h-[60px] z-40 fixed top-0 left-0 block sm:hidden "></div>
+    <div className="bg-[#000]  w-full h-[70px] z-[60] fixed top-0 left-0 block sm:hidden "></div>
       <button
         onClick={() => {
           setOpenSidebar(!openSideBar);

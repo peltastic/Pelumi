@@ -19,14 +19,14 @@ const Projects = () => {
   return (
     <section
       id="projects"
-      className=" w-full mx-auto relative mt-[20rem] sm:mt-1 overflow-hidden"
+      className=" w-full mb-6 mx-auto relative mt-[20rem] sm:mt-1 overflow-hidden"
     >
       <motion.h1
       ref={ref}
       variants={headerVariants(-100)}
       initial="hidden"
       animate={controls}
-       className="pl-[4rem] sm:pl-[7rem] py-12 sm:py-0 font-secondary  text-[#fff] text-[3rem] text-left">
+       className="pl-[4rem] mb-8 sm:pl-[7rem] py-12 sm:py-0 font-secondary  text-[#fff] text-[3rem] text-left">
         Projects
       </motion.h1>
       <motion.div 
@@ -34,9 +34,16 @@ const Projects = () => {
       variants={lineVariants("100%")}
       initial="hidden"
       animate={controls}
-      className=" w-full h-[2px] bg-primary-dark  mb-[15rem] sm:mb-[6rem]"></motion.div>
+      className=" w-full h-[2px] bg-primary-dark mb-2"></motion.div>
+      <motion.div
+        ref={ref}
+        variants={lineVariants("-100%")}
+        initial="hidden"
+        animate={controls}
+        className=" w-full h-[2px] mb-[10rem] bg-primary-dark"
+      ></motion.div>
 
-      <div className="flex md:pl-[2rem] flex-wrap items-start sm:h-full  my-auto w-full justify-center md:justify-start">
+      <div className="flex md:pl-[2rem] flex-wrap items-start sm:h-full mx-auto  my-auto max-w-[1500px] w-full justify-center md:justify-start">
         {ProjectList.map((item, index) => {
           return (
             <Project

@@ -1,4 +1,3 @@
-import LaptopImg from "../assets/laptop.svg";
 import LaptopImgDark from "../assets/laptopDark.svg";
 import Image from "next/image";
 import { motion, useAnimation } from "framer-motion";
@@ -10,32 +9,20 @@ import {
   headerVariants,
   lineVariants,
 } from "../variants/variants";
+import Skills from "./Skills";
 const AboutMe = () => {
-  const skills = [
-    "HTML",
-    "CSS/TAILWIND",
-    "TYPESCRIPT",
-    "REACTJS/NEXTJS",
-    "NODEJS",
-    "POSTGRES",
-    "FIREBASE",
-  ];
   const controls = useAnimation();
   const [ref, inView] = useInView();
   const [bodyRef, bodyInView] = useInView();
   const [text1Ref, text1InView] = useInView();
   const [text2Ref, text2InView] = useInView();
-  const [skillsRef, skillsInView] = useInView();
-  // const { scrollYProgress } = useViewportScroll()
-  // const initial = useTransform(scrollYProgress, x => x + 0.05);
 
   useEffect(() => {
     viewHandler(inView);
     viewHandler(text1InView);
     viewHandler(text2InView);
-    viewHandler(skillsInView);
     viewHandler(bodyInView);
-  }, [controls, inView, text1InView, text2InView, skillsInView, bodyInView]);
+  }, [controls, inView, text1InView, text2InView, bodyInView]);
 
   const viewHandler = (view) => {
     if (view) {
@@ -46,38 +33,44 @@ const AboutMe = () => {
   return (
     <section
       id="about"
-      className=" max-h-[800px] mt-[10rem] mx-auto sm:h-[90vh] relative overflow-hidden"
+      className=" max-h-[800px] mt-[10rem] mx-auto  relative sm:overflow-hidden mb-28"
     >
       <motion.h1
         ref={ref}
         variants={headerVariants(100)}
         initial="hidden"
         animate={controls}
-        className="block mt-[5rem] sm:mt-0 font-secondary py-12 sm:py-0 text-[#fff] text-[3rem] text-right px-[5rem]"
+        className="block mb-8 mt-[5rem] sm:mt-0 font-secondary py-12 sm:py-0 text-[#fff] text-[3rem] text-right px-[5rem] "
       >
         About Me
       </motion.h1>
-      {/* block relative w-full h-[2px] */}
       <motion.div
         ref={ref}
         variants={lineVariants("-100%")}
         initial="hidden"
         animate={controls}
-        className=" w-full h-[2px]  bg-primary-dark"
+        className=" w-full h-[2px] mb-2 bg-primary-dark"
+      ></motion.div>
+      <motion.div
+        ref={ref}
+        variants={lineVariants("100%")}
+        initial="hidden"
+        animate={controls}
+        className=" w-full h-[2px] mb-20 xxl:mb-[10rem] bg-primary-dark"
       ></motion.div>
 
-      <div className="flex justify-center h-full sm:items-center sm:-mt-[2rem]">
+      <div className="flex  justify-center h-full sm:items-center sm:mt-[2rem]">
         <motion.div
           ref={bodyRef}
           variants={slideInVariant(0, -150)}
           initial="hidden"
           animate={controls}
-          className="w-[50%] my-auto hidden sm:flex justify-center"
+          className="w-[30%] my-auto hidden sm:flex justify-center"
         >
           <Image src={LaptopImgDark} />
         </motion.div>
 
-        <div className="w-[90%] sm:w-[50%] sm:my-auto px-[2rem] md:px-[5rem] text-5xl sm:text-2xl mt-[10rem] sm:mt-auto  text-[#252525]">
+        <div className="w-[90%] sm:w-[50%] sm:my-auto px-[2rem] md:px-[5rem] m-w-[100px] text-5xl sm:text-2xl mt-[10rem] sm:mt-auto  text-[#252525]">
           <motion.p
             ref={text1Ref}
             variants={scaleUpVariant(0.2)}
@@ -101,31 +94,9 @@ const AboutMe = () => {
             believe in others around me and myself. Though i am familiar and use
             backend technologies, i focus more on the frontend side of things.
           </motion.p>
-          <motion.h1
-            ref={skillsRef}
-            variants={scaleUpVariant()}
-            initial="hidden"
-            animate={controls}
-            className="mt-16 mb-8 text-center font-secondary text-[#fff] text-4xl"
-          >
-            SKILLS
-          </motion.h1>
-          <div className="flex flex-wrap justify-center text-lg w-full">
-            {skills.map((item, index) => (
-              <motion.div
-                ref={skillsRef}
-                variants={slideInVariant(1 + index * 0.1, 40)}
-                initial="hidden"
-                animate={controls}
-                key={index}
-                className="text-3xl sm:text-xl px-10 sm:px-4 py-3  sm:py-1 mx-4 sm:mx-2 my-4 sm:my-2 bg-primary-dark rounded-full text-[#fff] shadow-md"
-              >
-                <p>{item}</p>
-              </motion.div>
-            ))}
-          </div>
         </div>
       </div>
+      <Skills />
     </section>
   );
 };

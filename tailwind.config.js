@@ -11,6 +11,7 @@ module.exports = {
       lg: "1000px",
       svg: "1300px",
       xl: "1440px",
+      xxl: "1700px"
     },
     colors: {
       "primary-light": "#FF687F",

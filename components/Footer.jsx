@@ -14,7 +14,7 @@ const Footer = () => {
     <footer
       id="contact"
       max-width="1650px"
-      className="bg-[#111111]  w-full py-10 text-[#fff] mt-12 sm:mt-auto"
+      className="bg-[#050505]  w-full py-10 text-[#fff] mt-12 sm:mt-auto"
     >
       <h1 className="font-secondary text-5xl text-center mt-4 mb-28">
         CONTACT ME
@@ -22,9 +22,8 @@ const Footer = () => {
       <div className="flex flex-wrap items-center mb-20 justify-around ">
         <div className=" w-full sm:w-[50%] flex sm:block justify-center sm:justify-self-auto">
           <p className="text-3xl w-[70%] text-center">
-            I am currently available for freelance or full time roles and
-            collaborations, i will respond to your messages within the next 24
-            hours{" "}
+            I am open currently open for projects, freelance and full time
+            roles, i will respond to messages with the next 12 hours
           </p>
         </div>
         <div className="w-full sm:w-auto flex items-center justify-center sm:justify-self-auto mt-28 sm:mt-auto mb-12 sm:mb-auto">

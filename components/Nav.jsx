@@ -13,11 +13,10 @@ const Nav = () => {
 
   return (
     <>
-    <div className="fixed z-50 sm:z-[130] top-[5rem] sm:top-[2rem] left-[4rem] sm:left-[7rem]">
+    <div className="fixed z-[61] sm:z-[130] top-[5rem] sm:top-[2rem] left-[4rem] sm:left-[7rem]">
       <Logo />
-
     </div>
-      <nav className="bg-gradient-to-b from-[#000] to-[#000000d3]  mx-auto fixed z-[100]  px-12 py-7 top-0 left-[50%] -translate-x-[50%] w-[98%] hidden sm:flex items-center">
+      <nav className="bg-gradient-to-b from-[#000] to-[#000000f2]  mx-auto fixed z-[100]  px-12 py-10 top-0 left-[50%] -translate-x-[50%] w-[98%] hidden sm:flex items-center">
         <ul className="flex items-center ml-auto text-[#fff] text-2xl">
           {navItem.map((item, index) => {
             return (
