@@ -28,10 +28,10 @@ function Headersvg({ animeDelay }) {
     }
   }, [controls, inView, animeDelay]);
   return (
-    <div className="absolute top-4 right-4">
+    <div className="absolute w-[100%] top-4 right-4">
       <motion.svg
-        width="627"
-        height="734"
+        // width="627"
+        // height="734"
         viewBox="0 0 1227 1334"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"

@@ -89,7 +89,7 @@ const NavMobile = () => {
             variants={fadeUp(0.5 + 5 * 0.1)}
             className=" text-center cursor-pointer my-10 border border-[#fff] px-4 py-2 rounded-md"
           >
-            <a href="https://drive.google.com/file/d/13Rij9kFpMmfUgF93cYBiZx8726qWGYnU/view">
+            <a href="https://drive.google.com/file/d/1fq9kFfzG7CV9Pwj_RMH-vZSAdzYJg9Wq/view">
               Resume
             </a>
           </motion.li>

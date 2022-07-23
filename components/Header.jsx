@@ -1,5 +1,4 @@
-import { useContext, useRef, useEffect, useState } from "react";
-import Image from "next/image";
+import { useEffect, useState } from "react";
 import Headersvg from "./headeSvg";
 import HeadersvgMobile from "./headerSvgMobile";
 import { motion, useAnimation } from "framer-motion";

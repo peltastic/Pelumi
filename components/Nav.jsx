@@ -41,7 +41,7 @@ const Nav = () => {
             animate="visible"
             className=" mx-5 cursor-pointer border border-primary-dark px-4 py-2 rounded-md"
           >
-            <motion.a href="https://drive.google.com/file/d/13Rij9kFpMmfUgF93cYBiZx8726qWGYnU/view">
+            <motion.a href="https://drive.google.com/file/d/1fq9kFfzG7CV9Pwj_RMH-vZSAdzYJg9Wq/view">
               Resume
             </motion.a>
           </motion.li>
