@@ -9,7 +9,6 @@ import {
   headerVariants,
   lineVariants,
 } from "../variants/variants";
-import Skills from "./Skills";
 const AboutMe = () => {
   const controls = useAnimation();
   const [ref, inView] = useInView();
@@ -33,7 +32,7 @@ const AboutMe = () => {
   return (
     <section
       id="about"
-      className=" max-h-[800px] mt-[10rem] mx-auto  relative sm:overflow-hidden mb-28"
+      className=" max-h-[800px] mt-[10rem] mx-auto  relative overflow-hidden mb-28"
     >
       <motion.h1
         ref={ref}
@@ -96,7 +95,6 @@ const AboutMe = () => {
           </motion.p>
         </div>
       </div>
-      <Skills />
     </section>
   );
 };

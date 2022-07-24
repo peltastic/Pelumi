@@ -6,6 +6,7 @@ import Projects from "../components/Projects";
 import Footer from "../components/Footer";
 import NavMobile from "../components/NavMobile";
 import Head from "next/head";
+import Skills from "../components/Skills";
 export default function Home() {
   return (
     <Background>
@@ -16,10 +17,7 @@ export default function Home() {
           sizes="180x180"
           href="/apple-touch-icon.png"
         />
-        <link
-          rel="shortcut icon"
-          href="/favicon/favicon.ico"
-        />
+        <link rel="shortcut icon" href="/favicon/favicon.ico" />
         <link
           rel="icon"
           type="image/png"
@@ -38,6 +36,7 @@ export default function Home() {
       <NavMobile />
       <Header />
       <AboutMe />
+      <Skills />
       <Projects />
       <Footer />
     </Background>

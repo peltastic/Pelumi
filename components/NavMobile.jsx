@@ -95,12 +95,6 @@ const NavMobile = () => {
           </motion.li>
         </motion.ul>
       </motion.nav>
-      {/* <motion.nav 
-      animate={openSideBar ? "open" : "close"}
-       className="block sm:hidden fixed top-[0] right-[0] bg-[#a8162c] px-8 py-8 h-[100vh] z-[70] w-full translate-x-[100%]">
-       
-        
-      </motion.nav> */}
     </>
   );
 };
