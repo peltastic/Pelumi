@@ -37,9 +37,7 @@ const Footer = () => {
                   <AiOutlineTwitter className="mr-6" />
                 </a>
               </Link>
-              <Link
-                href={"https://www.linkedin.com/in/pelumi-onasoga-4767081ba/"}
-              >
+              <Link href={"https://www.linkedin.com/in/pelumi-onasoga-4767081ba/"}>
                 <AiFillLinkedin />
               </Link>
             </div>
