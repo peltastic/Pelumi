@@ -39,9 +39,7 @@ function Projects() {
   ];
   return (
     <section id="project" className="text-white10">
-      <h1 className="text-6xl mt-[10rem] mb-16 text-center">
-        <span className="text-secondary">My</span> Projects
-      </h1>
+      <h1 className="text-6xl mt-[10rem] mb-16 text-center">Projects</h1>
       <div className="flex sm:ml-[5rem] xl:ml-0 flex-wrap justify-center sm:justify-start">
         {ProjectList.map((el, index) => (
           <div
@@ -52,7 +50,7 @@ function Projects() {
             <div className="flex mb-5">
               {el.tech.map((el, index) => (
                 <div key={index} className="mr-6">
-                  <Image  src={el} />
+                  <Image src={el} />
                 </div>
               ))}
             </div>
