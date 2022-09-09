@@ -50,7 +50,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="w-[90%] sm:w-[50%]">
-          <Image src={ContactIllustration} />
+          <Image src={ContactIllustration} alt="contact" />
         </div>
       </div>
     </footer>

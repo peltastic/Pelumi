@@ -51,8 +51,8 @@ function Projects() {
             <h1 className="text-4xl py-7  font-medium">{el.name}</h1>
             <div className="flex mb-5">
               {el.tech.map((el, index) => (
-                <div className="mr-6">
-                  <Image key={index} src={el} />
+                <div key={index} className="mr-6">
+                  <Image  src={el} />
                 </div>
               ))}
             </div>

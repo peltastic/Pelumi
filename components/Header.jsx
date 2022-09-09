@@ -82,10 +82,10 @@ function Header() {
       </div>
       <div className="mx-auto md2:mx-0 w-[90%] sm:w-[70%] md2:w-[50%] xl:w-[60%] relative">
         <div className="mx-auto sm1:w-auto relative z-10">
-          <Image src={HeroIllustration} />
+          <Image src={HeroIllustration} alt="hero" />
         </div>
         <div className=" w-[20rem] sm1:w-auto absolute top-[2rem] n:top-[5rem] right-[2rem] n:right-[5rem]">
-          <Image src={Bullets} />
+          <Image src={Bullets} alt="bullets" />
         </div>
       </div>
     </header>

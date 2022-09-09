@@ -30,7 +30,7 @@ function About() {
       </h1>
       <div className="flex flex-wrap items-start">
         <div className="w-[70%] sm:w-[50%] mx-auto sm:mx-0">
-          <Image src={AboutiIlustration} />
+          <Image src={AboutiIlustration} alt="about" />
         </div>
         <div className="w-[100%] sm:w-[40%]  ml-[2rem] mt-[4rem] md:mt-[10rem] text-white10">
           <h2 className="text-3xl mb-11 ml-11 text-center sm:text-left">SKILLS</h2>
@@ -40,7 +40,7 @@ function About() {
                 className="w-[25%] flex flex-col items-center my-1"
                 key={index}
               >
-                <Image src={el.img} />
+                <Image src={el.img} alt={el.name} />
                 <p>{el.name}</p>
               </div>
             ))}
