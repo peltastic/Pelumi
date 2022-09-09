@@ -40,32 +40,31 @@ const NavMobile = () => {
 
   return (
     <>
-    <div className="bg-[#000]  w-full h-[70px] z-[60] fixed top-0 left-0 block sm:hidden "></div>
       <button
         onClick={() => {
           setOpenSidebar(!openSideBar);
         }}
-        className="outline-none block sm:hidden fixed z-[100] w-[45px] h-[30px] right-[4rem] top-[5rem] "
+        className="outline-none block sm1:hidden fixed z-[100] w-[45px] h-[30px] right-[3rem] top-[3rem] "
       >
         <motion.div
           animate={openSideBar ? "open" : "close"}
           variants={navRotate(45)}
-          className="absolute top-0 right-[1rem] bg-primary-dark h-[4px] w-[30px] rounded-full"
+          className="absolute top-0 right-[1rem] bg-secondary h-[4px] w-[40px] rounded-full"
         ></motion.div>
         <motion.div
           animate={openSideBar ? "open" : "close"}
           variants={slideOutVariant(100)}
-          className="absolute top-6 right-[1rem] bg-primary-dark h-[4px] w-[35px] rounded-full"
+          className="absolute top-4 right-[1rem] bg-secondary h-[4px] w-[45px] rounded-full"
         ></motion.div>
         <motion.div
           animate={openSideBar ? "open" : "close"}
           variants={navRotate(-45)}
-          className="absolute top-12 right-[1rem] bg-primary-dark h-[4px] w-[25px] rounded-full"
+          className="absolute top-8 right-[1rem] bg-secondary h-[4px] w-[35px] rounded-full"
         ></motion.div>
       </button>
       <motion.nav
         variants={sidebar(1000)}
-        className="bg-[#7aff1b] z-[90] block sm:hidden fixed top-[0rem] right-[0rem] h-screen w-full"
+        className="bg-dark10 z-[90] block sm:hidden fixed top-[0rem] right-[0rem] h-screen w-full"
         animate={openSideBar ? "open" : "close"}
       >
         <motion.ul className="text-[#fff] text-[4rem] fixed top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%]">
@@ -89,7 +88,7 @@ const NavMobile = () => {
             variants={fadeUp(0.5 + 5 * 0.1)}
             className=" text-center cursor-pointer my-10 border border-[#fff] px-4 py-2 rounded-md"
           >
-            <a href="https://drive.google.com/file/d/1fq9kFfzG7CV9Pwj_RMH-vZSAdzYJg9Wq/view">
+            <a href="https://drive.google.com/file/d/1NxXpHe2mnfo0wUgM75i4zfE81U9oPKtQ/view?usp=sharing">
               Resume
             </a>
           </motion.li>

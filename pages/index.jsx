@@ -1,12 +1,11 @@
 import Nav from "../components/Nav";
 import Background from "../components/Background";
 import Header from "../components/Header";
-import AboutMe from "../components/About";
+import About from "../components/About";
 import Projects from "../components/Projects";
 import Footer from "../components/Footer";
 import NavMobile from "../components/NavMobile";
 import Head from "next/head";
-import Skills from "../components/Skills";
 export default function Home() {
   return (
     <Background>
@@ -35,8 +34,7 @@ export default function Home() {
       <Nav />
       <NavMobile />
       <Header />
-      <AboutMe />
-      <Skills />
+      <About />
       <Projects />
       <Footer />
     </Background>

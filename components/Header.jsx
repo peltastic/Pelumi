@@ -1,141 +1,95 @@
-import { useEffect, useState } from "react";
-import Headersvg from "./headeSvg";
-import HeadersvgMobile from "./headerSvgMobile";
-import { motion, useAnimation } from "framer-motion";
-
-const Header = () => {
-  const [headerDelay, setHeaderDelay] = useState(5);
-  const control = useAnimation();
-  const headVariant = (delay) => {
-    return {
-      hidden: { opacity: 0, y: 40 },
-      visible: {
-        opacity: 1,
-        y: 0,
-        transition: { duration: 1, ease: "easeOut", delay: delay },
-      },
-    };
-  };
-  const draw = {
-    hidden: { pathLength: 0, opacity: 0 },
-    visible: (i) => {
-      const delay = 0.4 + i * 0.5;
-      return {
-        pathLength: 1,
-        opacity: 1,
-        transition: {
-          pathLength: { delay, type: "spring", duration: 4, bounce: 0 },
-          opacity: { delay, duration: 0.01 },
-          repeat: Infinity,
-        },
-      };
-    },
-  };
-  const transitionVariant = (side) => {
-    return {
-      start: { x: 0 },
-      animate: { x: side, zIndex: 0, transition: { delay: 5 } },
-    };
-  };
-
-  useEffect(() => {
-    control.start("visible");
-  }, []);
+import React from "react";
+import Button from "./Button";
+import { GithubIcon, HashNodeIcon, LinkedInIcon } from "./Icons";
+import { AiOutlineMail, AiOutlineDownload } from "react-icons/ai";
+import HeroIllustration from "../assets/heroillustration.svg";
+import Bullets from "../assets/bullets.svg";
+import Image from "next/image";
+import Link from "next/link";
+function Header() {
   return (
-    <>
-      <motion.div
-        animate={{ display: "none" }}
-        transition={{ delay: 5.5 }}
-        className="w-full bg  fixed top-0 z-[1000] h-screen flex "
-      >
-        <motion.div
-          animate={{ display: "none" }}
-          transition={{ delay: 5 }}
-          className="absolute bg z-[100000] top-[50%] left-[50%] -translate-y-[50%] -translate-x-[50%]"
-        >
-          <motion.p
-            animate={{ opacity: 1 }}
-            transition={{ delay: 4 }}
-            className="text-[#fff]  opacity-0 text-[5rem] absolute top-[50%] left-[50%] -translate-y-[50%] -translate-x-[50%]"
-          >
-            P
-          </motion.p>
-          <motion.svg
-            width="201"
-            height="150"
-            viewBox="0 0 301 320"
+    <header
+      id="home"
+      className="md2:h-[80vh] items-center flex flex-wrap text-[#F1F1F1]"
+    >
+      <div className="w-full sm1:w-[90%] sm:w-[70%] md2:w-[50%] mr-auto xl:w-[40%] mb-16 md2:mb-0 mx-auto md2:mx-0  mt-16 md2:mt-0">
+        <h3 className="text-2xl">Hi!</h3>
+        <h1 className="text-[3rem] sm1:text-[4rem] n:text-[5rem]  mb-4 sm1:mb-0">
+          I'm <span className="text-secondary ">Pelumi.</span>
+        </h1>
+        <h1 className=" text-[3rem] sm1:text-[4rem] n:text-[5rem] leading-9 mb-10">
+          a Frontend Engineer
+        </h1>
+        <div className=" ml-2 md:ml-[10rem] mb-[3rem]">
+          <svg
+            viewBox="0 0 324 19"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
-            initial="hidden"
-            animate="visible"
-            onAnimationComplete={() => setHeaderDelay(0.2)}
           >
-            <motion.path
-              d="M2.5 93.0994L151.482 2.92831L298.169 93.0881V228.046L151.482 316.12L2.5 228.035V93.0994Z"
-              stroke="#fff"
-              strokeWidth="5"
-              variants={draw}
-              custom={1.5}
+            <path
+              d="M191.589 7.17545C118.307 7.17545 41.4668 14.1131 6.38388 18.2259C2.99201 18.6235 0 15.9817 0 12.5666C0 9.54554 2.34036 7.05539 5.35757 6.90294C39.9357 5.15576 111.001 1.77231 157.562 0.277794C205.757 -1.26919 285.905 4.01447 321.977 7.00619C323.139 7.10256 324 8.07177 324 9.23783C324 10.5259 322.92 11.5504 321.635 11.4645C304.579 10.3251 284.902 7.17545 191.589 7.17545Z"
+              fill="#EEBF63"
             />
-          </motion.svg>
-        </motion.div>
-        <motion.div
-          variants={transitionVariant("-120%")}
-          animate="animate"
-          className="bg-[#8f2a2a] fixed top-0 left-0 h-full translate-x-[20px]  w-[60%] z-[1000]"
-        ></motion.div>
-        <motion.div
-          variants={transitionVariant("120%")}
-          animate="animate"
-          className="bg-[#8f2a2a] fixed top-0 right-0 h-full w-[60%] z-[1000]"
-        ></motion.div>
-      </motion.div>
-      <header
-        id="home"
-        className="flex mx-auto max-h-[1200px] border-b  overflow-hidden w-full h-[100vh] px-10 py-24 relative"
-      >
-        <div className="absolute top-[3rem] sm:-right-[40rem] svg2:-right-[25rem] lg:-right-[10rem] svg:right-4 w-[50%] hidden sm:block">
-          <Headersvg animeDelay={headerDelay} />
+          </svg>
         </div>
-        <div className="absolute top-[60vh] xs:top-[13rem] -right-[1rem] xs:-right-[35rem]   block sm:hidden">
-          <HeadersvgMobile animeDelay={headerDelay} />
+
+        <p className="text-xl">
+          I implement user friendly, fast and responsive frontend applications
+        </p>
+        <div className="flex items-center text-xl my-12">
+          <p className="mr-11">Connect With Me</p>
+          <Link href="https://github.com/peltastic">
+            <a>
+              <GithubIcon className="w-[3rem] h-[3rem] mr-6" />
+            </a>
+          </Link>
+          <Link href={"https://www.linkedin.com/in/pelumi-onasoga-4767081ba/"}>
+            <a>
+              <LinkedInIcon className="w-[3rem] h-[3rem] mr-6" />
+            </a>
+          </Link>
+          <Link href="https://hashnode.com/@peltastic">
+            <a>
+              <HashNodeIcon className="w-[3rem] h-[3rem]" />
+            </a>
+          </Link>
         </div>
-        <div className="  xs:ml-7 absolute xs:relative top-[30rem] xs:top-0 px-[1rem] xs:px-0 sm:ml-[5rem] my-auto w-full xs:w-[50%]">
-          <motion.h2
-            variants={headVariant(5.2)}
-            initial="hidden"
-            animate={control}
-            className="  text-[3rem] sm:text-[1.7rem] lg:text-[3rem] text-[#fff]"
+        <div className="flex items-center  ">
+          <Link href={"mailto:onasogapelumi@gmail.com"}>
+            <a target={"_blank"}>
+              <Button
+                type="bg"
+                className="flex text-lg items-center px-[2rem] py-2 rounded-lg mr-9 "
+              >
+                <AiOutlineMail className="mr-3" />
+                <p>Mail Me</p>
+              </Button>
+            </a>
+          </Link>
+          <Link
+            href={
+              "https://drive.google.com/file/d/1NxXpHe2mnfo0wUgM75i4zfE81U9oPKtQ/view?usp=sharing"
+            }
           >
-            <span className="text-primary-dark font-secondary text-[3.2rem] sm:text-[1.9rem] lg:text-[3.2rem]">
-              Hi
-            </span>
-            , I'm Pelumi
-          </motion.h2>
-          <motion.h1
-            variants={headVariant(5.7)}
-            initial="hidden"
-            animate={control}
-            className="font-secondary text-[5rem] sm:text-[3rem] lg:text-[6rem] text-[#fff]"
-          >
-            FRONTEND ENGINEER{" "}
-            <span className="text-grey-header font-primary text-[2rem] sm:text-[1.5rem] lg:text-[2rem]">
-              and
-            </span>
-          </motion.h1>
-          <motion.h1
-            variants={headVariant(6.2)}
-            initial="hidden"
-            animate={control}
-            className="font-secondary text-[5rem] sm:text-[3rem] lg:text-[6rem] text-[#fff] "
-          >
-            WEB <span className="text-primary-dark">DEVELOPER</span>{" "}
-          </motion.h1>
+            <a target={"_blank"}>
+              <Button className="flex text-lg items-center py-2 rounded-lg px-[2rem]">
+                <AiOutlineDownload className="mr-3" />
+                <p>Download CV</p>
+              </Button>
+            </a>
+          </Link>
         </div>
-        <div className="w-full h-[20px] bg-gradient-to-t from-[#000000] to-[#00000021] absolute bottom-0 left-0"></div>
-      </header>
-    </>
+      </div>
+      <div className="mx-auto md2:mx-0 w-[90%] sm:w-[70%] md2:w-[50%] xl:w-[60%] relative">
+        <div className="mx-auto sm1:w-auto relative z-10">
+          <Image src={HeroIllustration} />
+        </div>
+        <div className=" w-[20rem] sm1:w-auto absolute top-[2rem] n:top-[5rem] right-[2rem] n:right-[5rem]">
+          <Image src={Bullets} />
+        </div>
+      </div>
+    </header>
   );
-};
+}
 
 export default Header;

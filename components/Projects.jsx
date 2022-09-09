@@ -1,66 +1,87 @@
-import Project from "./Project";
-import { useEffect } from "react";
-import { ProjectList } from "../data/project";
-import { motion, useAnimation } from "framer-motion";
-import { useInView } from "react-intersection-observer";
-import {headerVariants, lineVariants} from "../variants/variants"
-export 
+import React from "react";
+import ReactImg from "../assets/react.svg";
+import TypescriptImg from "../assets/typescript.svg";
+import JavascriptImg from "../assets/Javascript.svg";
+import NodeImg from "../assets/node.svg";
+import NextImg from "../assets/next.svg";
+import Image from "next/image";
+import { AiFillEye, AiOutlineGithub } from "react-icons/ai";
+import Link from "next/link";
 
-const Projects = () => {
-  const controls = useAnimation();
-  const [ref, inView] = useInView();
-  useEffect(() => {
-    if (inView) {
-      controls.start("visible");
-    } else {
-      controls.start("hidden");
-    }
-  }, [controls, inView]);
+function Projects() {
+  const ProjectList = [
+    {
+      name: "TechStore",
+      tech: [NextImg, NodeImg, TypescriptImg],
+      github: "https://github.com/peltastic/techstore_frontend",
+      live: "https://techstore8.vercel.app/",
+      desc: "Basic e-commerce web store workflow, admins can add products to the store, users can save products to cart and make orders",
+    },
+    {
+      name: "Web3bridge",
+      tech: [ReactImg, TypescriptImg],
+      live: "https://www.web3bridge.com/",
+      desc: "Developed the web3bridge website alongside a team of other developers",
+    },
+    {
+      name: "Zuri Chat",
+      tech: [ReactImg],
+      live: "https://www.zuri.chat/",
+      desc: "A youtube clone/like app which allows users to create a channel, subscribe to a channel, watch videos posted by a channel, like/dislike videos, delete/post videos, create a playlist of videos.",
+    },
+    {
+      name: "Youtube Clone",
+      tech: [NextImg, JavascriptImg],
+      github: "https://github.com/peltastic/YOUTUBE_CLONE",
+      live: "https://youtube-clone-wine.vercel.app/",
+      desc: "A youtube clone/like app which allows users to create a channel, subscribe to a channel, watch videos posted by a channel, like/dislike videos, delete/post videos, create a playlist of videos.",
+    },
+  ];
   return (
-    <section
-      id="projects"
-      className=" w-full mb-6 mx-auto relative mt-[20rem] sm:mt-1 overflow-hidden"
-    >
-      <motion.h1
-      ref={ref}
-      variants={headerVariants(-100)}
-      initial="hidden"
-      animate={controls}
-       className="pl-[4rem] mb-8 sm:pl-[7rem] py-12 sm:py-0 font-secondary  text-[#fff] text-[3rem] text-left">
-        Projects
-      </motion.h1>
-      <motion.div 
-      ref={ref}
-      variants={lineVariants("100%")}
-      initial="hidden"
-      animate={controls}
-      className=" w-full h-[2px] bg-primary-dark mb-2"></motion.div>
-      <motion.div
-        ref={ref}
-        variants={lineVariants("-100%")}
-        initial="hidden"
-        animate={controls}
-        className=" w-full h-[2px] mb-[10rem] bg-primary-dark"
-      ></motion.div>
-
-      <div className="flex md:pl-[2rem] flex-wrap items-start sm:h-full mx-auto  my-auto max-w-[1500px] w-full justify-center md:justify-start">
-        {ProjectList.map((item, index) => {
-          return (
-            <Project
-              key={index}
-              name={item.name}
-              tech={item.tech}
-              github={item.github}
-              live={item.live}
-              desc={item.desc}
-              classEl={item.class}
-              link={item?.link}
-            />
-          );
-        })}
+    <section id="project" className="text-white10">
+      <h1 className="text-6xl mt-[10rem] mb-16 text-center">
+        <span className="text-secondary">My</span> Projects
+      </h1>
+      <div className="flex sm:ml-[5rem] xl:ml-0 flex-wrap justify-center sm:justify-start">
+        {ProjectList.map((el, index) => (
+          <div
+            key={index}
+            className=" w-full xs:w-[90%] sm:w-[40%] xl:w-[45%] sm:mr-20 py-7 px-[3rem] rounded-lg my-12 bg-dark10"
+          >
+            <h1 className="text-4xl py-7  font-medium">{el.name}</h1>
+            <div className="flex mb-5">
+              {el.tech.map((el, index) => (
+                <div className="mr-6">
+                  <Image key={index} src={el} />
+                </div>
+              ))}
+            </div>
+            <p className="text-lg py-4 text-[]">{el.desc}</p>
+            <div className="flex items-center cursor-pointer">
+              <Link href={el.live}>
+                <a target={"_blank"}>
+                  <div className="flex py-6 mr-8 text-2xl items-center">
+                    <p className="mr-2 text-secondary">Live</p>
+                    <AiFillEye className="text-2xl " />
+                  </div>
+                </a>
+              </Link>
+              {el.github ? (
+                <Link href={el.github}>
+                  <a target={"_blank"}>
+                    <div className=" cursor-pointer flex py-6 text-xl mt-[.2rem] items-center">
+                      <p className="mr-2 text-secondary">Github</p>
+                      <AiOutlineGithub className="text-2xl -mt-[.3rem]" />
+                    </div>
+                  </a>
+                </Link>
+              ) : null}
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   );
-};
+}
 
 export default Projects;

@@ -5,26 +5,25 @@ module.exports = {
   theme: {
     screens: {
       xs: "400px",
-      sm: "600px",
-      svg2: "720px",
-      md: "800px",
-      lg: "1000px",
-      svg: "1300px",
-      xl: "1440px",
-      xxl: "1700px"
+      sm1: "550px",
+      sm: "650px",
+      md2: "850px",
+      md: "950px",
+      n: "1150px",
+      xl: "1350px",
     },
     colors: {
-      "primary-light": "#FF687F",
-      "primary-dark": "#FF0026",
-      "grey-header": "#CAC1C1",
-      "grey-secondary": "#9B9B9B",
-      footer: "#313131",
+      primary: "#1C1C1C",
+      secondary: "#EEBF63",
+      white10: "#f1f1f1",
+      dark10: "#2F2F2F",
     },
-    fontFamily: {
-      primary: ["DM Sans", "sans-serif"],
-      secondary: ["Luckiest Guy", "cursive"],
+    extend: {
+      fontFamily: {
+        madi: ["Ms Madi", "cursive"],
+        alfa: ["Alfa Slab One", "cursive"],
+      },
     },
-    extend: {},
   },
   variants: {
     extend: {},

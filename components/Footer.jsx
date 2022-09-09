@@ -1,8 +1,11 @@
 import Link from "next/link";
+import ContactIllustration from "../assets/contactillustration.svg";
+import Image from "next/image";
+import { AiOutlineTwitter, AiFillMail, AiFillLinkedin } from "react-icons/ai";
 
 const Footer = () => {
   const footerLinks = [
-    { href: "mailto:onosogapelumi@gmail.com", content: "Email Me" },
+    { href: "", content: "Email Me" },
     {
       href: "https://linkedin.com/in/pelumi-onasoga-4767081ba/",
       content: "LinkedIn",
@@ -11,39 +14,45 @@ const Footer = () => {
     { href: "https://github.com/peltastic", content: "Github" },
   ];
   return (
-    <footer
-      id="contact"
-      max-width="1650px"
-      className="bg-[#050505]  w-full py-10 text-[#fff] mt-12 sm:mt-auto"
-    >
-      <h1 className="font-secondary text-5xl text-center mt-4 mb-28">
-        CONTACT ME
+    <footer id="contact" className="text-white10 mt-24">
+      <h1 className="text-center text-6xl ">
+        Contact <span className="text-secondary">Me</span>{" "}
       </h1>
-      <div className="flex flex-wrap items-center mb-20 justify-around ">
-        <div className=" w-full sm:w-[50%] flex sm:block justify-center sm:justify-self-auto">
-          <p className="text-3xl w-[70%] text-center">
-            I am open currently open for projects, freelance and full time
-            roles, i will respond to messages with the next 12 hours
-          </p>
-        </div>
-        <div className="w-full sm:w-auto flex items-center justify-center sm:justify-self-auto mt-28 sm:mt-auto mb-12 sm:mb-auto">
-          {footerLinks.map((item, index) => {
-            return (
-              <div
-                key={index}
-                className=" mx-8 cursor-pointer shadow-lg rounded-full "
+      <div className="flex flex-wrap flex-col-reverse sm:flex-row  items-center">
+        <div className="w-full xs:w-[90%] sm:w-[40%] mr-auto ">
+          <div className="border-b-2 py-8 my-2 border-white10">
+            <p className=" text-lg">
+              I am open currently open for projects, freelance and full time
+              roles, i will respond to messages with the next 12 hours. Feel
+              free to contact Me
+            </p>
+            <div className="flex items-center text-6xl mt-[2rem]">
+              <Link href={"mailto:onosogapelumi@gmail.com"}>
+                <a>
+                  <AiFillMail className="mr-6" />
+                </a>
+              </Link>
+              <Link href={"https://twitter.com/peltastica"}>
+                <a>
+                  <AiOutlineTwitter className="mr-6" />
+                </a>
+              </Link>
+              <Link
+                href={"https://www.linkedin.com/in/pelumi-onasoga-4767081ba/"}
               >
-                <Link href={item.href}>
-                  <a className="text-primary-dark text-2xl">{item.content}</a>
-                </Link>
-              </div>
-            );
-          })}
+                <AiFillLinkedin />
+              </Link>
+            </div>
+          </div>
+          <div className="border-t-2 my-2 flex items-center py-8 border-white10">
+            <p className="font-madi text-6xl mr-auto">Pelumi</p>
+            <p>Made with Next.js and TailwindCSS</p>
+          </div>
+        </div>
+        <div className="w-[90%] sm:w-[50%]">
+          <Image src={ContactIllustration} />
         </div>
       </div>
-      <p className="text-center text-3xl sm:text-xl">
-        Made with nextjs, framer-motion and tailwindcss
-      </p>
     </footer>
   );
 };
