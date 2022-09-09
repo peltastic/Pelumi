@@ -33,7 +33,7 @@ function About() {
           <Image src={AboutiIlustration} alt="about" />
         </div>
         <div className="w-[100%] sm:w-[40%]  ml-[2rem] mt-[4rem] md:mt-[10rem] text-white10">
-          <h2 className="text-3xl mb-11 ml-11 text-center sm:text-left">SKILLS</h2>
+          <h2 className="text-3xl mb-11 sm:ml-11 text-center sm:text-left">SKILLS</h2>
           <div className="flex flex-wrap ">
             {skillsList.map((el, index) => (
               <div
