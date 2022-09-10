@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ReactImg from "../assets/react.svg";
 import TypescriptImg from "../assets/typescript.svg";
 import JavascriptImg from "../assets/javascript.svg";
@@ -7,6 +7,8 @@ import NextImg from "../assets/next.svg";
 import Image from "next/image";
 import { AiFillEye, AiOutlineGithub } from "react-icons/ai";
 import Link from "next/link";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 function Projects() {
   const ProjectList = [
@@ -37,6 +39,10 @@ function Projects() {
       desc: "A youtube clone/like app which allows users to create a channel, subscribe to a channel, watch videos posted by a channel, like/dislike videos, delete/post videos, create a playlist of videos.",
     },
   ];
+  useEffect(() => {
+    AOS.init();
+    AOS.refresh();
+  }, []);
   return (
     <section id="project" className="text-white10">
       <h1 className="text-6xl mt-[10rem] mb-16 text-center">Projects</h1>
@@ -44,6 +50,7 @@ function Projects() {
         {ProjectList.map((el, index) => (
           <div
             key={index}
+            data-aos="zoom-in"
             className=" w-full xs:w-[90%] sm:w-[40%] xl:w-[45%] sm:mr-20 py-7 px-[3rem] rounded-lg my-12 bg-dark10"
           >
             <h1 className="text-4xl py-7  font-medium">{el.name}</h1>
@@ -54,13 +61,13 @@ function Projects() {
                 </div>
               ))}
             </div>
-            <p className="text-lg py-4 text-[]">{el.desc}</p>
+            <p className="text-lg py-4 ">{el.desc}</p>
             <div className="flex items-center cursor-pointer">
               <Link href={el.live}>
                 <a target={"_blank"}>
                   <div className="flex py-6 mr-8 text-2xl items-center">
                     <p className="mr-2 text-secondary">Live</p>
-                    <AiFillEye className="text-2xl " />
+                    <AiFillEye className="text-2xl mt-[.1rem]" />
                   </div>
                 </a>
               </Link>

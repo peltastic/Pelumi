@@ -1,10 +1,9 @@
 import { Link } from "react-scroll";
-import { useRef, useState } from "react";
-import { motion, useCycle } from "framer-motion";
+import { useState } from "react";
+import { motion } from "framer-motion";
 import {
   navRotate,
   slideOutVariant,
-  slideInVariant,
   fadeUp,
 } from "../variants/variants";
 
@@ -67,7 +66,7 @@ const NavMobile = () => {
         className="bg-dark10 z-[90] block sm:hidden fixed top-[0rem] right-[0rem] h-screen w-full"
         animate={openSideBar ? "open" : "close"}
       >
-        <motion.ul className="text-[#fff] text-[4rem] fixed top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%]">
+        <motion.ul initial={{display: "none"}} transition={{delay: 2}} animate={{display: "block"}} className="text-[#fff] text-[4rem] fixed top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%]">
           {list.map((items, index) => {
             return (
               <motion.li
@@ -78,7 +77,7 @@ const NavMobile = () => {
                 
               >
                 <Link to={items.to} spy={true} smooth={true}>
-                  <p onClick={() => setOpenSidebar(!openSideBar)} className="">{items.name}</p>
+                  <p onClick={() => setOpenSidebar(!openSideBar)} className="text-5xl my-12">{items.name}</p>
                 </Link>
               </motion.li>
             );
@@ -86,7 +85,7 @@ const NavMobile = () => {
           <motion.li
             animate={openSideBar ? "visible" : "hidden"}
             variants={fadeUp(0.5 + 5 * 0.1)}
-            className=" text-center cursor-pointer my-10 border border-[#fff] px-4 py-2 rounded-md"
+            className=" text-center cursor-pointer text-5xl my-10 border border-[#fff] px-4 py-2 rounded-md"
           >
             <a href="https://drive.google.com/file/d/1NxXpHe2mnfo0wUgM75i4zfE81U9oPKtQ/view?usp=sharing">
               Resume

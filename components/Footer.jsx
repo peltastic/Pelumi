@@ -1,18 +1,16 @@
+import React, { useEffect } from "react";
 import Link from "next/link";
 import ContactIllustration from "../assets/contactillustration.svg";
 import Image from "next/image";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import { AiOutlineTwitter, AiFillMail, AiFillLinkedin } from "react-icons/ai";
 
 const Footer = () => {
-  const footerLinks = [
-    { href: "", content: "Email Me" },
-    {
-      href: "https://linkedin.com/in/pelumi-onasoga-4767081ba/",
-      content: "LinkedIn",
-    },
-    { href: "https://twitter.com/peltastica", content: "Twitter" },
-    { href: "https://github.com/peltastic", content: "Github" },
-  ];
+  useEffect(() => {
+    AOS.init();
+    AOS.refresh();
+  }, []);
   return (
     <footer id="contact" className="text-white10 mt-24">
       <h1 className="text-center text-6xl ">
@@ -28,17 +26,21 @@ const Footer = () => {
             </p>
             <div className="flex items-center text-6xl mt-[2rem]">
               <Link href={"mailto:onosogapelumi@gmail.com"}>
-                <a>
-                  <AiFillMail className="mr-6" />
+                <a data-aos="fade-left" data-aos-delay="100">
+                  <AiFillMail className="mr-6 hover:scale-[1.2] transition-all" />
                 </a>
               </Link>
               <Link href={"https://twitter.com/peltastica"}>
-                <a>
-                  <AiOutlineTwitter className="mr-6" />
+                <a data-aos="fade-left" data-aos-delay="200">
+                  <AiOutlineTwitter className="mr-6 hover:scale-[1.2] transition-all" />
                 </a>
               </Link>
-              <Link href={"https://www.linkedin.com/in/pelumi-onasoga-4767081ba/"}>
-                <AiFillLinkedin />
+              <Link
+                href={"https://www.linkedin.com/in/pelumi-onasoga-4767081ba/"}
+              >
+                <a data-aos="fade-left" data-aos-delay="200">
+                  <AiFillLinkedin className="hover:scale-[1.2] transition-all" />
+                </a>
               </Link>
             </div>
           </div>
@@ -47,7 +49,7 @@ const Footer = () => {
             <p>Made with Next.js and TailwindCSS</p>
           </div>
         </div>
-        <div className="w-[90%] sm:w-[50%]">
+        <div data-aos="zoom-in" className="w-[90%] sm:w-[50%]">
           <Image src={ContactIllustration} alt="contact" />
         </div>
       </div>

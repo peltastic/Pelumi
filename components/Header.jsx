@@ -6,7 +6,22 @@ import HeroIllustration from "../assets/heroillustration.svg";
 import Bullets from "../assets/bullets.svg";
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
 function Header() {
+  const draw = {
+    hidden: { pathLength: 0, opacity: 0 },
+    visible: (i) => {
+      const delay = 1 + i * 0.5;
+      return {
+        pathLength: 1,
+        opacity: 1,
+        transition: {
+          pathLength: { delay, type: "spring", duration: 1.5, bounce: 0 },
+          opacity: { delay, duration: 0.01 },
+        },
+      };
+    },
+  };
   return (
     <header
       id="home"
@@ -21,16 +36,17 @@ function Header() {
           a Frontend Engineer
         </h1>
         <div className=" ml-2 md:ml-[10rem] mb-[3rem]">
-          <svg
+          <motion.svg
             viewBox="0 0 324 19"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <path
+            <motion.path
+             
               d="M191.589 7.17545C118.307 7.17545 41.4668 14.1131 6.38388 18.2259C2.99201 18.6235 0 15.9817 0 12.5666C0 9.54554 2.34036 7.05539 5.35757 6.90294C39.9357 5.15576 111.001 1.77231 157.562 0.277794C205.757 -1.26919 285.905 4.01447 321.977 7.00619C323.139 7.10256 324 8.07177 324 9.23783C324 10.5259 322.92 11.5504 321.635 11.4645C304.579 10.3251 284.902 7.17545 191.589 7.17545Z"
               fill="#EEBF63"
             />
-          </svg>
+          </motion.svg>
         </div>
 
         <p className="text-xl">
@@ -39,18 +55,18 @@ function Header() {
         <div className="flex items-center text-xl my-12">
           <p className="mr-11">Connect With Me</p>
           <Link href="https://github.com/peltastic">
-            <a>
-              <GithubIcon className="w-[3rem] h-[3rem] mr-6" />
+            <a data-aos="fade-left" data-aos-delay="100">
+              <GithubIcon className="w-[3rem] h-[3rem] mr-6 hover:scale-[1.2] transition-all" />
             </a>
           </Link>
           <Link href={"https://www.linkedin.com/in/pelumi-onasoga-4767081ba/"}>
-            <a>
-              <LinkedInIcon className="w-[3rem] h-[3rem] mr-6" />
+            <a data-aos="fade-left" data-aos-delay="200">
+              <LinkedInIcon className="w-[3rem] h-[3rem] mr-6 hover:scale-[1.2] transition-all" />
             </a>
           </Link>
           <Link href="https://hashnode.com/@peltastic">
-            <a>
-              <HashNodeIcon className="w-[3rem] h-[3rem]" />
+            <a data-aos="fade-left" data-aos-delay="300">
+              <HashNodeIcon className="w-[3rem] h-[3rem] hover:scale-[1.2] transition-all" />
             </a>
           </Link>
         </div>
@@ -81,9 +97,13 @@ function Header() {
         </div>
       </div>
       <div className="mx-auto md2:mx-0 w-[90%] sm:w-[70%] md2:w-[50%] xl:w-[60%] relative">
-        <div className="mx-auto sm1:w-auto relative z-10">
+        <motion.div
+          initial={{ scale: 0.2 }}
+          animate={{ scale: 1 }}
+          className="scale-[.2] mx-auto sm1:w-auto relative z-10"
+        >
           <Image src={HeroIllustration} alt="hero" />
-        </div>
+        </motion.div>
         <div className=" w-[20rem] sm1:w-auto absolute top-[2rem] n:top-[5rem] right-[2rem] n:right-[5rem]">
           <Image src={Bullets} alt="bullets" />
         </div>
