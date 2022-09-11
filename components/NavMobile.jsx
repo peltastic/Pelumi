@@ -1,11 +1,7 @@
 import { Link } from "react-scroll";
 import { useState } from "react";
 import { motion } from "framer-motion";
-import {
-  navRotate,
-  slideOutVariant,
-  fadeUp,
-} from "../variants/variants";
+import { navRotate, slideOutVariant, fadeUp } from "../variants/variants";
 
 const NavMobile = () => {
   const [openSideBar, setOpenSidebar] = useState(false);
@@ -15,27 +11,6 @@ const NavMobile = () => {
     { to: "projects", name: "Projects" },
     { to: "contact", name: "Contact Me" },
   ];
-  const sidebar = (height) => {
-    return {
-      open: {
-        clipPath: `circle(${height * 2 + 200}px at 90vw 6rem)`,
-        transition: {
-          type: "spring",
-          stiffness: 20,
-          restDelta: 2,
-        },
-      },
-      close: {
-        clipPath: "circle(0px at 90vw 6rem)",
-        transition: {
-          // delay: 0.5,
-          type: "spring",
-          stiffness: 400,
-          damping: 40,
-        },
-      },
-    };
-  };
 
   return (
     <>
@@ -62,11 +37,15 @@ const NavMobile = () => {
         ></motion.div>
       </button>
       <motion.nav
-        variants={sidebar(1000)}
         className="bg-dark10 z-[90] block sm:hidden fixed top-[0rem] right-[0rem] h-screen w-full"
-        animate={openSideBar ? "open" : "close"}
+        animate={{ x: openSideBar ? 0 : "100%" }}
       >
-        <motion.ul initial={{display: "none"}} transition={{delay: 2}} animate={{display: "block"}} className="text-[#fff] text-[4rem] fixed top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%]">
+        <motion.ul
+          initial={{ display: "none" }}
+          transition={{ delay: 2 }}
+          animate={{ display: "block" }}
+          className="text-[#fff] text-[4rem] fixed top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%]"
+        >
           {list.map((items, index) => {
             return (
               <motion.li
@@ -74,10 +53,14 @@ const NavMobile = () => {
                 variants={fadeUp(0.5 + index * 0.1)}
                 key={index}
                 className="cursor-pointer my-8"
-                
               >
                 <Link to={items.to} spy={true} smooth={true}>
-                  <p onClick={() => setOpenSidebar(!openSideBar)} className="text-5xl my-12">{items.name}</p>
+                  <p
+                    onClick={() => setOpenSidebar(!openSideBar)}
+                    className="text-5xl my-12"
+                  >
+                    {items.name}
+                  </p>
                 </Link>
               </motion.li>
             );
