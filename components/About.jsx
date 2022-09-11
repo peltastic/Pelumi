@@ -34,15 +34,15 @@ function About() {
       <h1 className="text-center text-6xl text-white10">
         About <span className="text-secondary">Me</span>{" "}
       </h1>
-      <div className="flex flex-wrap items-start">
+      <div className="flex flex-wrap items-start ">
         <div data-aos="zoom-in" className="w-[70%] sm:w-[50%] mx-auto sm:mx-0">
           <Image src={AboutiIlustration} alt="about" />
         </div>
-        <div className="w-[100%] sm:w-[40%]  ml-[2rem] mt-[4rem] md:mt-[10rem] text-white10">
+        <div className="w-[100%] sm:w-[40%]  ml-0 sm1:ml-[2rem] mt-[4rem] md:mt-[10rem] text-white10">
           <h2 className="text-3xl mb-11 sm:ml-11 text-center sm:text-left">
             SKILLS
           </h2>
-          <div className="flex flex-wrap ">
+          <div className="flex flex-wrap">
             {skillsList.map((el, index) => (
               <div
                 data-aos="fade-left"

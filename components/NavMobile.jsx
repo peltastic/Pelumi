@@ -18,7 +18,7 @@ const NavMobile = () => {
         onClick={() => {
           setOpenSidebar(!openSideBar);
         }}
-        className="outline-none block sm1:hidden fixed z-[100] w-[45px] h-[30px] right-[3rem] top-[3rem] "
+        className="outline-none block sm1:hidden fixed z-[100] w-[45px] h-[30px] right-[2rem] top-[3rem] "
       >
         <motion.div
           animate={openSideBar ? "open" : "close"}
@@ -38,6 +38,7 @@ const NavMobile = () => {
       </button>
       <motion.nav
         className="bg-dark10 z-[90] block sm:hidden fixed top-[0rem] right-[0rem] h-screen w-full"
+        initial={{x:"100%"}}
         animate={{ x: openSideBar ? 0 : "100%" }}
       >
         <motion.ul
