@@ -15,7 +15,7 @@ function Projects() {
     {
       name: "TechStore",
       tech: [NextImg, NodeImg, TypescriptImg],
-      github: "https://github.com/peltastic/techstore_frontend",
+      github: "https://github.com/peltastic/cesory",
       live: "https://techstore8.vercel.app/",
       desc: "Basic e-commerce web store workflow, admins can add products to the store, users can save products to cart and make orders",
     },
