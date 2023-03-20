@@ -33,7 +33,7 @@ function Header() {
           I'm <span className="text-secondary ">Pelumi.</span>
         </h1>
         <h1 className=" text-[3rem] sm1:text-[4rem] n:text-[5rem] leading-9 mb-10">
-          a Frontend Engineer
+          a Software Developer
         </h1>
         <div className=" ml-2 md:ml-[10rem] mb-[3rem]">
           <motion.svg
