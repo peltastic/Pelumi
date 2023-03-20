@@ -50,7 +50,7 @@ function Header() {
         </div>
 
         <p className="text-xl">
-          I implement user friendly, fast and responsive frontend applications
+          I build fast and robust web applications
         </p>
         <div className="flex items-center text-xl my-12">
           <p className="mr-11">Connect With Me</p>
