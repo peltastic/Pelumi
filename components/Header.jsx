@@ -32,7 +32,7 @@ function Header() {
         <h1 className="text-[3rem] sm1:text-[4rem] n:text-[5rem]  mb-4 sm1:mb-0">
           I'm <span className="text-secondary ">Pelumi.</span>
         </h1>
-        <h1 className=" text-[3rem] sm1:text-[4rem] n:text-[5rem] leading-9 mb-10">
+        <h1 className=" text-[3rem] sm1:text-[4rem] n:text-[4.5rem] leading-9 mb-10">
           a Software Developer
         </h1>
         <div className=" ml-2 md:ml-[10rem] mb-[3rem]">
