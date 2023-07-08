@@ -1,39 +1,35 @@
 import React, { useEffect } from "react";
-import ReactImg from "../assets/react.svg";
-import TypescriptImg from "../assets/typescript.svg";
-import JavascriptImg from "../assets/javascript.svg";
-import NodeImg from "../assets/node.svg";
-import NextImg from "../assets/next.svg";
 import Image from "next/image";
 import { AiFillEye, AiOutlineGithub } from "react-icons/ai";
 import Link from "next/link";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import bgDesignsImg from "../assets/design2.svg";
 
 function Projects() {
   const ProjectList = [
     {
-      name: "TechStore",
-      tech: [NextImg, NodeImg, TypescriptImg],
+      name: "Shop It",
+      tech: ["Nodejs", "Express", "Typescript", "Mysql"],
+      github: "https://github.com/peltastic/shopIT",
+      desc: "API for shopee type e-commerce app where vendors can upload their products to user and receive analytics on their products and sales",
+    },
+    {
+      name: "Cesory",
+      tech: ["Nextjs", "Nodejs", "Typescript", "Postgres"],
       github: "https://github.com/peltastic/cesory",
       live: "https://techstore8.vercel.app/",
-      desc: "Basic e-commerce web store workflow, admins can add products to the store, users can save products to cart and make orders",
+      desc: "Ecommerce website where customers can order and save products. New products can be uploaded to the platoform ",
     },
     {
       name: "Web3bridge",
-      tech: [ReactImg, TypescriptImg],
+      tech: ["Reactjs", "Typescript"],
       live: "https://www.web3bridge.com/",
       desc: "Developed the web3bridge website alongside a team of other developers",
     },
     {
-      name: "Zuri Chat",
-      tech: [ReactImg],
-      live: "https://www.zuri.chat/",
-      desc: "A youtube clone/like app which allows users to create a channel, subscribe to a channel, watch videos posted by a channel, like/dislike videos, delete/post videos, create a playlist of videos.",
-    },
-    {
       name: "Youtube Clone",
-      tech: [NextImg, JavascriptImg],
+      tech: ["Nextjs", "Javascript"],
       github: "https://github.com/peltastic/YOUTUBE_CLONE",
       live: "https://youtube-clone-wine.vercel.app/",
       desc: "A youtube clone/like app which allows users to create a channel, subscribe to a channel, watch videos posted by a channel, like/dislike videos, delete/post videos, create a playlist of videos.",
@@ -44,7 +40,10 @@ function Projects() {
     AOS.refresh();
   }, []);
   return (
-    <section id="project" className="text-white10">
+    <section id="project" className="text-white10 relative">
+      <div className="w-[30rem] absolute -left-[17rem] -top-[10rem] opacity-30">
+        <Image src={bgDesignsImg} alt="design" />
+      </div>
       <h1 className="text-6xl mt-[10rem] mb-16 text-center">Projects</h1>
       <div className="flex sm:ml-[5rem] xl:ml-0 flex-wrap justify-center sm:justify-start">
         {ProjectList.map((el, index) => (
@@ -54,23 +53,24 @@ function Projects() {
             className=" w-full xs:w-[90%] sm:w-[40%] xl:w-[45%] sm:mr-20 py-7 px-[3rem] rounded-lg my-12 bg-dark10"
           >
             <h1 className="text-4xl py-7  font-medium">{el.name}</h1>
-            <div className="flex mb-5">
+            <div className="flex text-lg mb-5">
               {el.tech.map((el, index) => (
-                <div key={index} className="mr-6">
-                  <Image src={el} />
+                <div key={index} className="bg-[#a57e2e] rounded-xl py-2 mr-3 px-3 font-bold">
+                  <p>{el}</p>
                 </div>
+                
               ))}
             </div>
-            <p className="text-lg py-4 ">{el.desc}</p>
+            <p className="text-2xl py-4 ">{el.desc}</p>
             <div className="flex items-center cursor-pointer">
-              <Link href={el.live}>
+             { el.live ? <Link href={el.live}>
                 <a target={"_blank"}>
                   <div className="flex py-6 mr-8 text-2xl items-center">
                     <p className="mr-2 text-secondary">Live</p>
                     <AiFillEye className="text-2xl mt-[.1rem]" />
                   </div>
                 </a>
-              </Link>
+              </Link>: null}
               {el.github ? (
                 <Link href={el.github}>
                   <a target={"_blank"}>

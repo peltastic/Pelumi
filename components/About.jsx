@@ -4,6 +4,7 @@ import Image from "next/image";
 import ReactImg from "../assets/react.svg";
 import TypescriptImg from "../assets/typescript.svg";
 import JavascriptImg from "../assets/javascript.svg";
+import bgDesignsImg from "../assets/design1.svg";
 import NodeImg from "../assets/node.svg";
 import NextImg from "../assets/next.svg";
 import GitImg from "../assets/git.svg";
@@ -30,16 +31,22 @@ function About() {
     AOS.refresh();
   }, []);
   return (
-    <section id="about" className="mt-[7rem]">
-      <h1 className="text-center text-6xl text-white10">
+    <section id="about" className="mt-[9rem] relative">
+      <div className="w-[30rem] absolute -right-[17rem] -top-[10rem] opacity-30">
+        <Image src={bgDesignsImg} alt="design" />
+      </div>
+      <h1 className="text-center text-6xl mb-36 text-white10">
         About <span className="text-secondary">Me</span>{" "}
       </h1>
-      <div className="flex flex-wrap items-start ">
-        <div data-aos="zoom-in" className="w-[70%] sm:w-[50%] mx-auto sm:mx-0">
-          <Image src={AboutiIlustration} alt="about" />
+      <div className="flex flex-wrap items-center ">
+        <div
+          data-aos="zoom-in"
+          className="  w-[100%] md2:w-[50%] mb-28 md2:mb-0  bg-white10 rounded-lg mx-auto md2:mx-0"
+        >
+          <Image src={AboutiIlustration} alt="about" className="" />
         </div>
-        <div className="w-[100%] sm:w-[40%]  ml-0 sm1:ml-[2rem] mt-[4rem] md:mt-[10rem] text-white10">
-          <h2 className="text-3xl mb-11 sm:ml-11 text-center sm:text-left">
+        <div className="w-[100%] md2:w-[40%]  ml-0 sm1:ml-[2rem]  text-white10">
+          <h2 className="text-3xl mb-11 sm:ml-11 text-center md2:text-left">
             SKILLS
           </h2>
           <div className="flex flex-wrap">
@@ -49,7 +56,6 @@ function About() {
                 data-aos-delay={`${index.toString()}00`}
                 className="w-[25%] mb-5 flex flex-col items-center my-1"
                 key={index}
-                
               >
                 <Image src={el.img} alt={el.name} />
                 <p>{el.name}</p>
@@ -58,7 +64,7 @@ function About() {
           </div>
         </div>
       </div>
-      <div className="text-white10 py-10  px-[2rem] sm:px-[10rem] md:px-[20rem] text-xl">
+      <div className="text-white10 py-10  px-[2rem] sm:px-[10rem] md:px-[20rem] text-3xl">
         <p data-aos="zoom-in-up" className="mb-7 mt-12">
           {" "}
           I'm an innovative, task-driven front-end developer who loves

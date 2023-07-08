@@ -4,6 +4,7 @@ import ContactIllustration from "../assets/contactillustration.svg";
 import Image from "next/image";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import bgDesignsImg from "../assets/design3.svg";
 import { AiOutlineTwitter, AiFillMail, AiFillLinkedin } from "react-icons/ai";
 
 const Footer = () => {
@@ -12,14 +13,17 @@ const Footer = () => {
     AOS.refresh();
   }, []);
   return (
-    <footer id="contact" className="text-white10 mt-24">
-      <h1 className="text-center text-6xl ">
+    <footer id="contact" className="text-white10 mt-24 relative">
+      <div className="w-[30rem] -z-[10] absolute -right-[19rem] -top-[15rem] opacity-30">
+        <Image src={bgDesignsImg} alt="design" />
+      </div>
+      <h1 className="text-center text-6xl  mb-20">
         Contact <span className="text-secondary">Me</span>{" "}
       </h1>
       <div className="flex flex-wrap flex-col-reverse sm:flex-row  items-center">
         <div className="w-full xs:w-[90%] sm:w-[40%] mr-auto ">
           <div className="border-b-2 py-8 my-2 border-white10">
-            <p className=" text-lg">
+            <p className=" text-2xl">
               I am open currently open for projects, freelance and full time
               roles, i will respond to messages with the next 12 hours. Feel
               free to contact Me

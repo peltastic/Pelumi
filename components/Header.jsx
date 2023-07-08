@@ -25,9 +25,9 @@ function Header() {
   return (
     <header
       id="home"
-      className="md2:h-[80vh] items-center flex flex-wrap text-[#F1F1F1]"
+      className="md2:h-[80vh] items-center  flex flex-wrap text-[#F1F1F1]"
     >
-      <div className="w-full sm1:w-[90%] sm:w-[70%] md2:w-[50%] mr-auto xl:w-[40%] mb-16 md2:mb-0 mx-auto md2:mx-0  mt-16 md2:mt-0">
+      <div className="w-full sm1:w-[90%] sm:w-[70%] md2:w-[50%] mr-auto xl:w-[40%] mb-16 md2:mb-0 mx-auto md2:mx-0 px-4 mt-16 md2:mt-0">
         <h3 className="text-2xl">Hi!</h3>
         <h1 className="text-[3rem] sm1:text-[4rem] n:text-[5rem]  mb-4 sm1:mb-0">
           I'm <span className="text-secondary ">Pelumi.</span>
@@ -42,16 +42,13 @@ function Header() {
             xmlns="http://www.w3.org/2000/svg"
           >
             <motion.path
-             
               d="M191.589 7.17545C118.307 7.17545 41.4668 14.1131 6.38388 18.2259C2.99201 18.6235 0 15.9817 0 12.5666C0 9.54554 2.34036 7.05539 5.35757 6.90294C39.9357 5.15576 111.001 1.77231 157.562 0.277794C205.757 -1.26919 285.905 4.01447 321.977 7.00619C323.139 7.10256 324 8.07177 324 9.23783C324 10.5259 322.92 11.5504 321.635 11.4645C304.579 10.3251 284.902 7.17545 191.589 7.17545Z"
               fill="#EEBF63"
             />
           </motion.svg>
         </div>
 
-        <p className="text-xl">
-          I build fast and robust web applications
-        </p>
+        <p className="text-3xl">I build fast and robust web applications</p>
         <div className="flex items-center text-xl my-12">
           <p className="mr-11">Connect With Me</p>
           <Link href="https://github.com/peltastic">
@@ -96,14 +93,16 @@ function Header() {
           </Link>
         </div>
       </div>
-      <div className="mx-auto md2:mx-0 w-[90%] sm:w-[70%] md2:w-[50%] xl:w-[60%] relative">
-        <motion.div
+      <div className="mx-auto md2:mx-0 w-[90%] sm:w-[70%] md2:w-[50%] xl:w-[60%] flex justify-center relative">
+        {/* <motion.div
           initial={{ scale: 0.2 }}
           animate={{ scale: 1 }}
           className="scale-[.2] mx-auto sm1:w-auto relative z-10"
-        >
+        > */}
+        <div className="relative z-[300]">
           <Image src={HeroIllustration} alt="hero" />
-        </motion.div>
+        </div>
+        {/* </motion.div> */}
         <div className=" w-[20rem] sm1:w-auto absolute top-[2rem] n:top-[5rem] right-[2rem] n:right-[5rem]">
           <Image src={Bullets} alt="bullets" />
         </div>
