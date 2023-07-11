@@ -67,22 +67,33 @@ function About() {
       <div className="text-white10 py-10  px-[2rem] sm:px-[10rem] md:px-[20rem] text-3xl">
         <p data-aos="zoom-in-up" className="mb-7 mt-12">
           {" "}
-          I'm an innovative, task-driven front-end developer who loves
-          developing user-friendly, fast, dynamic, and creative front-end
-          applications. I love working with teams and can work alone, onsite,
-          and remotely. I'm proficient in creating user interfaces and writing
-          clean, readable codes. I love solving problems.
+          I'm a highly skilled and passionate full-stack web developer with a
+          strong commitment to the craft of software development. With a proven
+          track record of designing and implementing robust and scalable web
+          applications, I possess a deep understanding of modern web
+          technologies and frameworks.
         </p>
         <p data-aos="zoom-in-up" className="mb-7">
-          I use Reactjs mainly and am also comfortable using Next. I love using
-          Typescript for my applications and have no problem using Javascript. I
-          also know how to use backend technologies like Nodejs at the side and
-          can use them for various projects. I love to focus on the front-end
-          side of things.
+          My expertise lies in front-end development, where I excel in creating
+          intuitive and visually appealing user interfaces that enhance user
+          experiences. Additionally, I am proficient in back-end development,
+          ensuring seamless integration and optimal functionality of web
+          applications..
+        </p>
+        <p data-aos="zoom-in-up" className="mb-7">
+          My continuous drive for learning and staying up-to-date with emerging
+          trends and best practices in the software development industry has
+          allowed me to adapt quickly to new technologies and deliver innovative
+          solutions. I thrive in dynamic and fast-paced environments, leveraging
+          my problem-solving skills to overcome challenges and achieve project
+          goals.
         </p>
         <p data-aos="zoom-in-up">
-          I love writing technical articles during my free time about solutions
-          to web-related and software development problems.
+          Overall, I am a dedicated and enthusiastic software developer who is
+          passionate about creating exceptional web applications. I am eager to
+          contribute my skills, knowledge, and creative mindset to drive
+          impactful results and make a meaningful contribution to your
+          organization's success.
         </p>
       </div>
     </section>

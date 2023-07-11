@@ -23,7 +23,7 @@ const Footer = () => {
       <div className="flex flex-wrap flex-col-reverse sm:flex-row  items-center">
         <div className="w-full xs:w-[90%] sm:w-[40%] mr-auto ">
           <div className="border-b-2 py-8 my-2 border-white10">
-            <p className=" text-2xl">
+            <p className=" text-3xl">
               I am open currently open for projects, freelance and full time
               roles, i will respond to messages with the next 12 hours. Feel
               free to contact Me

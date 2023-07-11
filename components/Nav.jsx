@@ -16,7 +16,7 @@ const Nav = () => {
       <h1 className="font-semi items-centerbold text-2xl mr-auto font-alfa mt-4 sm1:mt-0">
         Pelumi
       </h1>
-      <ul className="hidden sm1:flex text-xl">
+      <ul className="hidden sm1:flex text-3xl">
         <Link to="home" spy={true} smooth={true}>
           <li className="mr-12 cursor-pointer">
             <p className="hover:text-secondary">Home</p>

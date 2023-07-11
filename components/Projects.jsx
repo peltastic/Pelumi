@@ -19,7 +19,7 @@ function Projects() {
       tech: ["Nextjs", "Nodejs", "Typescript", "Postgres"],
       github: "https://github.com/peltastic/cesory",
       live: "https://techstore8.vercel.app/",
-      desc: "Ecommerce website where customers can order and save products. New products can be uploaded to the platoform ",
+      desc: "Ecommerce website where customers can order and save products. New products can be uploaded to the platform ",
     },
     {
       name: "Web3bridge",
