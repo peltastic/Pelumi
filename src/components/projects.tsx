@@ -84,7 +84,7 @@ const Projects = (props: Props) => {
   }
 
   return (
-    <section id="projects" className="mt-20  mb-10 relative w-full">
+    <section id="projects" className="mt-20  mb-10 relative w-full overflow-hidden">
       <motion.div
         initial={{ opacity: 0, y: 100 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -96,7 +96,7 @@ const Projects = (props: Props) => {
           colors={["#F3F3F3", "#9E9E9E", "#F3F3F3", "#9E9E9E", "#F3F3F3"]}
           animationSpeed={3}
           showBorder={false}
-          className="custom-class text-[3rem]! text-center  md:text-left mx-auto md:mx-0"
+          className="custom-class text-[2rem] md:text-[3rem]! text-center  md:text-left mx-auto md:mx-0"
         >
           Projects
         </GradientText>

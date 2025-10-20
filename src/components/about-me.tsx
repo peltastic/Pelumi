@@ -43,7 +43,7 @@ const AboutMe = (props: Props) => {
   return (
     <section
       id="about"
-      className="mt-[7rem] md:mt-[15rem] bg-[var(--background)] z-10 relative mx-6 sm:mx-20 text-center  rounded-xl border border-[#262626] py-10 xs:py-20 shadow-[0_4px_12px_rgba(0,0,0,0.25)] text-[#F3F3F3] px-4 xs:px-10"
+      className="mt-[7rem] md:mt-[15rem] bg-[var(--background)] z-10 relative xs:mx-6 sm:mx-20 text-center  rounded-xl sm:border sm:border-[#262626] py-10 xs:py-20 shadow-[0_4px_12px_rgba(0,0,0,0.25)] text-[#F3F3F3] px-10"
     >
       <motion.div
         initial={{ opacity: 0, y: 100 }}
