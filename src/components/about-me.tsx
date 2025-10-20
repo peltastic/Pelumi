@@ -68,7 +68,7 @@ const AboutMe = (props: Props) => {
           ...SECTION_HEADERS_TRANSITION,
           delay: 0.1,
         }}
-        className="text-[#9E9E9E] font-light mt-4 text-justify md:text-center"
+        className="text-[#9E9E9E] font-light mt-4 text-center"
       >
         I'm a software engineer equipped with a wide range of technical skills
         and the ability to adapt across stacks to meet diverse engineering
